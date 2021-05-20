@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "apps/fe/src/app/main/components/*"
+      ],
+      "@services/*": [
+        "apps/fe/src/app/main/services/*"
+      ],
+      "@models/*": [
+        "apps/fe/src/app/main/models/*"
+      ],
+      "@views/*": [
+        "apps/fe/src/app/main/views/*"
+      ],
+      "@core/*": [
+        "apps/fe/src/app/core/*"
+      ],
+      "@root-store/*": [
+        "apps/fe/src/app/root-store/*"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

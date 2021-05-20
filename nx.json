@@ -1,0 +1,33 @@
+{
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "nx-body-data",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "fe": {
+      "tags": []
+    },
+    "fe-e2e": {
+      "tags": [],
+      "implicitDependencies": ["fe"]
+    },
+    "be": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<style>
+  #bmi {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+  #bmi td, #bmi th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #bmi tr:nth-child(even){background-color: #343a40;}
+
+  #bmi tr:hover {background-color: #888888;}
+
+  #bmi th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: #898989;
+    background-color: #4c4c4c;
+  }
+</style>
+
+<div align="center">
+  <h1 style="color: #898989;">Body Mass Index (BMI)</h1>
+  <p-card>
+    <table id="bmi">
+      <tr>
+        <th>Value</th>
+        <th>Range</th>
+      </tr>
+      <tr>
+        <td>< 16.5</td>
+        <td>GRAVE MAGREZZA</td>
+      </tr>
+      <tr>
+        <td>16-18,49</td>
+        <td>SOTTOPESO</td>
+      </tr>
+      <tr>
+        <td>18.5-24,99</td>
+        <td>NORMOPESO</td>
+      </tr>
+      <tr>
+        <td>25-29,99</td>
+        <td>SOVRAPPESO</td>
+      </tr>
+      <tr>
+        <td>30-34,99</td>
+        <td>OBESITÀ CLASSE I (lieve)</td>
+      </tr>
+      <tr>
+        <td>35-39,99</td>
+        <td>OBESITÀ CLASSE II (media)</td>
+      </tr>
+      <tr>
+        <td>> 40</td>
+        <td>OBESITÀCLASSE III (grave)</td>
+      </tr>
+    </table>
+  </p-card>
+
+</div>

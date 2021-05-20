@@ -1,0 +1,16 @@
+<div class="card">
+  <p style="color: #898989; font-size: 1em">My Progress</p>
+  <p-chart [height]=" 300" [width]="500" type="line" [data]="bodyDatas$ | async" [options]="bodyDataOptions"></p-chart>
+</div>
+<p-toolbar styleClass="p-mb-4">
+  <!--  <ng-template pTemplate="left">
+      <app-search [actions]="actions"></app-search>
+    </ng-template>-->
+  <ng-template pTemplate="left">
+    <app-button-new-body-data class="p-mr-2"></app-button-new-body-data>
+    <app-button-delete-body-data class="p-mr-2"></app-button-delete-body-data>
+    <!--    <app-button-edit-many-test-body-data class="p-mr-2"></app-button-edit-many-test-body-data>
+        <app-button-create-many-test-body-data></app-button-create-many-test-body-data>-->
+  </ng-template>
+</p-toolbar>
+<app-body-data-list></app-body-data-list>
