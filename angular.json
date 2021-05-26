@@ -63,7 +63,7 @@
               "apps/fe/src/css/text-align.css",
               "apps/fe/src/css/validator.css"
             ],
-            "scripts": []
+            "scripts": [ "node_modules/chart.js/dist/Chart.js"]
           },
           "configurations": {
             "production": {

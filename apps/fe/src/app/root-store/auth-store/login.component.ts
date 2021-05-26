@@ -1,7 +1,8 @@
 import {Component, NgModule, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {AuthStoreActions, AuthStoreSelectors} from './index';
+import * as AuthStoreActions from './actions';
+import * as AuthStoreSelectors from './selectors';
 import {CommonModule} from '@angular/common';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {SharedModule} from 'primeng/api';

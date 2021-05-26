@@ -61,6 +61,7 @@
     "@ngrx/store-devtools": "^11.1.1",
     "@nrwl/angular": "12.1.1",
     "@types/mongoose": "^5.10.5",
+    "chart.js": "^2.9.4",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "deepmerge": "^4.2.2",
@@ -82,8 +83,7 @@
     "swagger-ui-express": "^4.1.6",
     "tslib": "^2.2.0",
     "typeorm": "^0.2.32",
-    "zone.js": "~0.10.3",
-    "chart.js": "^2.9.4"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.0",
