@@ -9,7 +9,7 @@
     "start": "node dist/apps/be/main.js",
     "start:dev": "npm run env && ng serve --proxy-config proxy.conf.js",
     "start:be": "nx serve be",
-    "build": "ng build",
+    "build": "npm run env && nx build be --configuration=production && ng build --prod",
     "test": "ng test",
     "env": "ts-node ./envSetter.ts",
     "lint": "nx workspace-lint && ng lint",
