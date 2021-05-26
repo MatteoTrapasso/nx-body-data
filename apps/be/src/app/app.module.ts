@@ -1,16 +1,22 @@
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { BodyDataModule } from './body-data/body-data.module';
-import { MongooseModule } from '@nestjs/mongoose';
-import {Module, MiddlewareConsumer, RequestMethod, Delete} from '@nestjs/common';
+import {AppController} from './app.controller';
+import {AppService} from './app.service';
+import {BodyDataModule} from './body-data/body-data.module';
+import {MongooseModule} from '@nestjs/mongoose';
+import {MiddlewareConsumer, Module, RequestMethod} from '@nestjs/common';
 import {AuthenticationMiddleware} from "./common/authentication.middleware";
 import {environment} from "../environments/environment";
+import {ServeStaticModule} from "@nestjs/serve-static";
+import {join} from "path";
 
+console.log('__dirname', __dirname);
 @Module({
   imports: [
     MongooseModule.forRoot(
       environment.MONGO_DB_SRV,
     ),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'fe'),
+    }),
     BodyDataModule,
   ],
   controllers: [AppController],

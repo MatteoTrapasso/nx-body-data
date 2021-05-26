@@ -16,7 +16,7 @@ async function bootstrap() {
     origin: ['http://localhost:4200', 'https://body-data.herokuapp.com'],
   });
   const options = new DocumentBuilder()
-    .setTitle('body-data-crud')
+    .setTitle('body-data')
     .setDescription('CRUD per body-data')
     .setVersion('1.0')
     .addTag('body-data')
