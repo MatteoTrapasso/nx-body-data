@@ -1,4 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+#ENV
+.env
+/apps/fe/src/environments/environment.base.ts
+/apps/be/src/environments/environment.base.ts
 
 # compiled output
 /dist

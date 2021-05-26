@@ -3,19 +3,27 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
+import {NestFactory} from '@nestjs/core';
 
-import { AppModule } from './app/app.module';
+import {AppModule} from './app/app.module';
+import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
+  const globalPrefix = 'api/v1';
   app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port, () => {
-    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+  app.enableCors({
+    origin: ['http://localhost:4200', 'https://body-data.herokuapp.com'],
   });
+  const options = new DocumentBuilder()
+    .setTitle('body-data-crud')
+    .setDescription('CRUD per body-data')
+    .setVersion('1.0')
+    .addTag('body-data')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+  await app.listen(process.env.PORT || 3000);
 }
 
 bootstrap();

@@ -20,7 +20,7 @@ export function clone<T>(value: T): T {
 }
 
 export function getFlattenInObject<T, R>(propertyName, inputArray: T[], distinct: boolean): R[] {
-  let result = [];
+  const result = [];
   inputArray.forEach(item => {
     if (!distinct || (distinct && result.indexOf(item[propertyName]) === -1)) {
       result.push(item[propertyName]);
@@ -31,11 +31,11 @@ export function getFlattenInObject<T, R>(propertyName, inputArray: T[], distinct
 
 export function getDuplicateInObject<T>(propertyName, inputArray: T[]): T[] {
 
-  var sorted_arr = [...inputArray].sort(function(a, b) {
+  const sorted_arr = [...inputArray].sort(function(a, b) {
     return ('' + a[propertyName]).localeCompare(b[propertyName]);
   });
 
-  var results: T[] = [];
+  const results: T[] = [];
   for (var i = 0; i < sorted_arr.length - 1; i++) {
     if (sorted_arr[i + 1][propertyName] == sorted_arr[i][propertyName] && !results.find(item => item[propertyName] === sorted_arr[i][propertyName])) {
       results.push(sorted_arr[i]);
@@ -50,14 +50,14 @@ export function getDuplicateInObject<T>(propertyName, inputArray: T[]): T[] {
 export function debounce(func, wait, immediate) {
   let timeout;
   return function() {
-    let context = this, args = arguments;
-    let later = function() {
+    const context = this, args = arguments;
+    const later = function() {
       timeout = null;
       if (!immediate) {
         func.apply(context, args);
       }
     };
-    let callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) {

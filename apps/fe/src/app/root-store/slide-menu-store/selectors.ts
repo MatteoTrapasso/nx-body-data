@@ -44,7 +44,7 @@ export const selectItemsAuth: MemoizedSelector<object, MenuItem[]> = createSelec
   selectItems,
   AuthStoreSelectors.selectRoles,
   (menuItems: MenuItem[], roles) => {
-    roles = !!roles ? roles : ['guest'];
+    roles = roles ? roles : ['guest'];
     return menuItems.reduce((previous, current) => {
       console.log('reduce.()');
       // @ts-ignore

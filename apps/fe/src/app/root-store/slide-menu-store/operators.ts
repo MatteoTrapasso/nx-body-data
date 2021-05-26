@@ -4,10 +4,10 @@ import {map} from 'rxjs/operators';
 export const menuItemsDecoratorFn: (itemsA: MenuItem[], store$) => MenuItem[] = (itemsA: MenuItem[], store$) => {
   return itemsA.map(value => {
       const result: any = {...value};
-      if (!!result.command) {
+      if (result.command) {
         result.store$ = store$;
       }
-      if (!!result.items) {
+      if (result.items) {
         result.items = menuItemsDecoratorFn(result.items, store$);
       }
       return result;

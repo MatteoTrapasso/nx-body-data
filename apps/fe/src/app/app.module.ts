@@ -40,9 +40,9 @@ import {environment} from '../environments/environment';
     CardModule,
     ChartModule,
     AuthModule.forRoot({
-      domain: 'bodydata.eu.auth0.com',
-      clientId: 'gM1Uj6O1RtTjD4QHe0eawpVzoc6bRju2',
-      audience: 'https://bodydata.eu.auth0.com/api/v2/',
+      domain: environment.DOMAIN,
+      clientId: environment.CLIENT_ID,
+      audience: 'https://'+environment.DOMAIN+'/api/v2/',
       redirectUri: window.location.origin,
       // The AuthHttpInterceptor configuration
       httpInterceptor: {
