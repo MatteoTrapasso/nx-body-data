@@ -33,24 +33,6 @@ export const initialState: State = {
       }
     },
     {
-      label: 'User',
-      icon: 'pi pi-fw pi-user-plus',
-      // @ts-ignore
-      roles: ['administrator'],
-      command: (event$) => {
-        // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['user']}));
-
-        // salvo nello store del menù l'elemento selezionato.
-        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
-          item: {
-            data: {},
-            breadcrumb: ['Sezione ', 'User'] // breadcrumb
-          }
-        }));
-      }
-    },
-    {
       label: 'BodyData',
       icon: 'pi pi-fw pi-chart-line',
       // @ts-ignore
@@ -64,6 +46,24 @@ export const initialState: State = {
           item: {
             data: {},
             breadcrumb: ['Sezione ', 'BodyData'] // breadcrumb
+          }
+        }));
+      }
+    },
+    {
+      label: 'Eat',
+      icon: 'pi pi-fw pi-calendar-plus',
+      // @ts-ignore
+      roles: ['roleA'],
+      command: (event$) => {
+        // invoco il router per cambiare pagina
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat']}));
+
+        // salvo nello store del menù l'elemento selezionato.
+        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
+          item: {
+            data: {},
+            breadcrumb: ['Sezione ', 'Eat'] // breadcrumb
           }
         }));
       }

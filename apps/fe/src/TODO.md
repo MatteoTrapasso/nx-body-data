@@ -40,5 +40,8 @@
 - [ x ] eliminare scritta 'actions' in list
 - [ x ] inserire unità di misura in form e list
 - [ x ] add tooltipe
+- [ x ] unificare repositories
 - [   ] creare api per deleteAll, updateMany, insertMany
-- [   ] unificare repositories
+- [   ] creare lista cibo + calorie
+- [   ] aggiungere linea chart per calcolo
+- [   ] profili amministratore per gestire utenti

@@ -9,6 +9,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {SlideMenuStoreModule} from '@root-store/slide-menu-store';
 import { BodyDataStoreModule } from '@root-store/body-data-store';
 import { AuthStoreModule } from '@root-store/auth-store';
+import {EatStoreModule} from "@root-store/eat-store";
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { AuthStoreModule } from '@root-store/auth-store';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EatStoreModule,
     BodyDataStoreModule,
     AuthStoreModule,
   ],
