@@ -1,8 +1,7 @@
 export class Eat {
-    public id: string = undefined;
-    /**
-     * metodo statico utilizzato per recuperare l'id dell'entita.
-     * @param item
-     */
-    static selectId: (item: Eat) => string = item => item.id;
+  public _id: string = undefined;
+  public kcal: number = undefined;
+  public date: string = undefined;
+  public user: string = undefined;
+  static selectId: (item: Eat) => string = item => item._id;
 }

@@ -1,13 +1,17 @@
-<p-table [value]="collection$ | async" [selection]="itemsSelected$ | async" (selectionChange)="onSelectionChange($event)">
+<p-table [value]="collection$ | async" [selection]="itemsSelected$ | async"
+         (selectionChange)="onSelectionChange($event)" styleClass="p-datatable-responsive-demo">
   <ng-template pTemplate="header">
     <tr>
       <th style="width: 3rem">
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
       </th>
-      <th *ngFor="let col of cols">
-        {{col}}
+      <th>
+        kcal
       </th>
-      <th style="width: 10em">actions</th>
+      <th>
+        date
+      </th>
+      <th style="width: 10em"></th> <!--actions-->
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
@@ -15,14 +19,19 @@
       <td>
         <p-tableCheckbox [value]="item"></p-tableCheckbox>
       </td>
-      <td *ngFor="let col of cols">
-        {{item[col]}}
+      <td>
+        {{item['kcal']}}
+      </td>
+      <td>
+        {{item['date']}}
       </td>
       <td>
 
-        <button pButton pRipple type="button" icon="pi pi-copy" class="p-button-rounded p-button-outlined p-mr-1" (click)="onCopy(item)"></button>
-        <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)"></button>
-        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)"></button>
+        <!--<button pButton pRipple type="button" icon="pi pi-copy" class="p-button-rounded p-button-outlined p-mr-1" (click)="onCopy(item)"></button>-->
+        <button pButton pRipple type="button" icon="pi pi-pencil"
+                class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)" pTooltip="modify" tooltipPosition="top"></button>
+        <button pButton pRipple type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)" pTooltip="delete" tooltipPosition="top"></button>
 
       </td>
     </tr>

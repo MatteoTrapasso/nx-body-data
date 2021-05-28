@@ -11,7 +11,7 @@ import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 @Component({
   selector: 'app-eat-list',
   templateUrl: `eat-list.component.html`,
-  styles: [``],
+  styleUrls: [`eat-list.component.scss`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EatListComponent implements OnInit {
@@ -23,7 +23,7 @@ export class EatListComponent implements OnInit {
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
-    console.log('EatListComponent.constructor()');
+    console.log('EatComponent.constructor()');
   }
 
   ngOnInit(): void {

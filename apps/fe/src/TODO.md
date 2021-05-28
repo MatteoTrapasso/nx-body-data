@@ -41,7 +41,10 @@
 - [ x ] inserire unità di misura in form e list
 - [ x ] add tooltipe
 - [ x ] unificare repositories
-- [   ] creare api per deleteAll, updateMany, insertMany
+- [ x ] creare sezione 'eat' + store
 - [   ] creare lista cibo + calorie
-- [   ] aggiungere linea chart per calcolo
-- [   ] profili amministratore per gestire utenti
+- [   ] grafico calorie giornaliere
+- [   ] creare api per deleteAll, updateMany, insertMany
+- [   ] aggiungere linea chart per calcolo body-data (metabolismo basale (harris and benedict))
+        - servono età e sesso
+- [   ] profilo amministratore per monitorare utenti

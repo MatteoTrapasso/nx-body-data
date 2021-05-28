@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
-import {Eat} from '@models/vo/eat';
-import {FormGroup} from '@angular/forms';
-import {EatStoreActions} from '@root-store/eat-store';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {EatStoreActions} from "@root-store/eat-store/index";
+import {Eat} from "@models/vo/eat";
 
 
 @Component({
@@ -12,18 +12,34 @@ import {EatStoreActions} from '@root-store/eat-store';
 })
 export class EatEditComponent extends PopUpBaseComponent<Eat> {
 
-  form: FormGroup;
-  keys: string[];
+  form: FormGroup; // form
+
+  _id: FormControl; // attributo
+  kcal: FormControl; // attributo
+  date: FormControl; // attributo
+  user: FormControl; // attributo
 
   setItemPerform(value: Eat): void {
-    const group = this.fb.group({});
-    this.keys = Object.keys(value);
-    this.keys.forEach(key => group.addControl(key, this.fb.control({value: value[key], disabled: key === 'id'})));
-    this.form = group;
+    this.makeFrom();
+    this.form.reset(value);
+  }
+
+  makeFrom(): void {
+
+    const date = new Date();
+
+
+    this.kcal = this.fb.control('', Validators.required);
+    this.date = this.fb.control({value: date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear(), disabled: true});
+
+    this.form = this.fb.group({ // form
+      kcal: this.kcal, // attributo
+      date: this.date, // attributo
+    });
   }
 
   acceptPerform(item: Eat): void {
-    if (item.id) {
+    if (item._id) {
       this.store$.dispatch(EatStoreActions.EditRequest({
         item, onResult: [
           // azione che verrà invocata al result della chiamata all'interno dell'effect.
@@ -44,7 +60,4 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
     }
   }
 
-  // cancel(): void {
-  //   this.store$.dispatch(closePopUpAction(this.route));
-  // }
 }
