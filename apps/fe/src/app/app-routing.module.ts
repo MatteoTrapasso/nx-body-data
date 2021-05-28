@@ -11,7 +11,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./main/views/body-data/body-data.module').then(m => m.BodyDataModule)
   },
-  {path: 'eat', loadChildren: () => import('./main/views/eat/eat.module').then(m => m.EatModule)},
+  {path: 'eat', canActivate: [AuthGuard], loadChildren: () => import('./main/views/eat/eat.module').then(m => m.EatModule)},
+  {path: 'user', canActivate: [AuthGuard], loadChildren: () => import('./main/views/user/user.module').then(m => m.UserModule)}
 ];
 
 @NgModule({

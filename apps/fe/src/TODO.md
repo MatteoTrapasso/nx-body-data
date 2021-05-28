@@ -41,9 +41,12 @@
 - [ x ] inserire unità di misura in form e list
 - [ x ] add tooltipe
 - [ x ] unificare repositories
-- [ x ] creare sezione 'eat' + store
+- [ x ] creare sezione 'eat' + store + api
+- [ x ] grafico calorie giornaliere
+- [ x ] creare sezione utente + store + api
+- [   ] rendere sezione user come Card
+- [   ] passare altezza form bmi da user.height
 - [   ] creare lista cibo + calorie
-- [   ] grafico calorie giornaliere
 - [   ] creare api per deleteAll, updateMany, insertMany
 - [   ] aggiungere linea chart per calcolo body-data (metabolismo basale (harris and benedict))
         - servono età e sesso

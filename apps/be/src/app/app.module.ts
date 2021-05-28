@@ -8,6 +8,7 @@ import {environment} from "../environments/environment";
 import {ServeStaticModule} from "@nestjs/serve-static";
 import {join} from "path";
 import {EatModule} from "./eat/eat.module";
+import {UserModule} from "./user/user.module";
 
 console.log('__dirname', __dirname);
 @Module({
@@ -19,7 +20,8 @@ console.log('__dirname', __dirname);
       rootPath: join(__dirname, '..', 'fe'),
     }),
     BodyDataModule,
-    EatModule
+    EatModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -30,7 +32,8 @@ export class AppModule {
         .apply(AuthenticationMiddleware)
         .forRoutes(
             { path: 'body-data', method: RequestMethod.ALL },
-            { path: 'eat', method: RequestMethod.ALL }
+            { path: 'eat', method: RequestMethod.ALL },
+            { path: 'user', method: RequestMethod.ALL }
         );
   }
 }

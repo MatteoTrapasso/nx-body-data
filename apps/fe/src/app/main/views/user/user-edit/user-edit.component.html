@@ -1,0 +1,67 @@
+<p-dialog header="{{title}}"
+          [transitionOptions]="'150ms cubic-bezier(0, 0, 0.2, 1)'"
+          [visible]="true"
+          [modal]="true"
+          [responsive]="true"
+          [style]="{minWidth: '200px'}"
+          [minY]="70"
+          [maximizable]="false"
+          [closable]="false"
+          (onHide)="cancel()"><!--cancel width: '70em' in style-->
+
+  <div class="p-grid">
+    <div class="p-col">
+      <form
+        class="dynamic-form"
+        [formGroup]="form">
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="nickname"><strong>nickname</strong></label><br>
+            <input id="nickname" name="nickname" type="string" class="form-control" pInputText [formControl]="nickname"/>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="height"><strong>height</strong></label><br>
+            <input id="height" name="height" type="number" class="form-control" pInputText [formControl]="height"/>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="bDate"><strong>bDate</strong></label><br>
+            <input id="bDate" type="date" name="bDate" class="form-control" pInputText [formControl]="bDate"/>
+          </div>
+        </div>
+
+<!--        <div class="p-grid">
+          <div class="p-col">
+            <label for="gender"><strong>gender</strong></label><br>
+            <input id="gender" name="gender" type="string" class="form-control" pInputText [formControl]="gender"/>
+          </div>
+        </div>-->
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="gender"><strong>gender</strong></label><br>
+            <p-selectButton id="gender" name="gender" [formControl]="gender" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!--    <div class="p-col">
+          <pre>
+    {{form | jsonForm | json}}
+    </pre>
+        </div>-->
+  </div>
+
+
+  <ng-template pTemplate="footer">
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
+    <button pButton type="button" label="Cancel" (click)="cancel()"></button>
+  </ng-template>
+
+</p-dialog>

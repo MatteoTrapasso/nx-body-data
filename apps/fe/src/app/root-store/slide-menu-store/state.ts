@@ -67,6 +67,24 @@ export const initialState: State = {
           }
         }));
       }
+    },
+    {
+      label: 'User',
+      icon: 'pi pi-fw pi-user',
+      // @ts-ignore
+      roles: ['roleA'],
+      command: (event$) => {
+        // invoco il router per cambiare pagina
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['user']}));
+
+        // salvo nello store del menù l'elemento selezionato.
+        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
+          item: {
+            data: {},
+            breadcrumb: ['Sezione ', 'User'] // breadcrumb
+          }
+        }));
+      }
     }
   ]
 };
