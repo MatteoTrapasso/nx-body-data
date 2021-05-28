@@ -1,3 +1,7 @@
+<div class="card">
+  <p style="color: #898989; font-size: 1em">My Progress</p>
+  <p-chart [height]=" 300" [width]="500" type="line" [data]="eats$ | async" [options]="eatOptions"></p-chart>
+</div>
 <p-toolbar styleClass="p-mb-4">
   <ng-template pTemplate="left">
     <app-search [actions]="actions"></app-search>

@@ -17,6 +17,7 @@ import {ButtonEditManyTestEatComponent} from './components/button-edit-many-test
 import {ButtonCreateManyTestEatComponent} from './components/button-create-many-test-eat.component';
 import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
+import {ChartModule} from "primeng/chart";
 
 @NgModule({
   declarations: [
@@ -28,20 +29,21 @@ import {ToolbarModule} from 'primeng/toolbar';
     ButtonEditManyTestEatComponent,
     ButtonCreateManyTestEatComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    EatRoutingModule,
-    TableModule,
-    DialogModule,
-    ButtonModule,
-    InputTextModule,
-    PipesModule,
-    SearchModule,
-    NgLetModule,
-    ToolbarModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        EatRoutingModule,
+        TableModule,
+        DialogModule,
+        ButtonModule,
+        InputTextModule,
+        PipesModule,
+        SearchModule,
+        NgLetModule,
+        ToolbarModule,
+        ChartModule
+    ],
   providers: [],
   entryComponents: []
 })
