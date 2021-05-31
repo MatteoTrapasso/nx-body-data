@@ -29,12 +29,13 @@ export class BodyDataEditComponent extends PopUpBaseComponent<BodyData> {
 
     const date = new Date();
 
-
+    this._id = this.fb.control(this._id, Validators.required);
     this.height = this.fb.control('', Validators.required);
     this.weight = this.fb.control('', Validators.required);
     this.date = this.fb.control({value: date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear(), disabled: true});
 
     this.form = this.fb.group({ // form
+      _id: this._id, // attributo
       height: this.height, // attributo
       weight: this.weight, // attributo
       date: this.date, // attributo

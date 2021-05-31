@@ -31,15 +31,16 @@ export class UserEditComponent extends PopUpBaseComponent<User> {
 
   makeFrom(): void {
 
-    const date = new Date();
 
 
+    this._id = this.fb.control(this._id, Validators.required);
     this.bDate = this.fb.control('', Validators.required);
     this.height = this.fb.control('', Validators.required);
     this.gender = this.fb.control('', Validators.required);
     this.nickname = this.fb.control('', Validators.required);
 
     this.form = this.fb.group({ // form
+      _id: this._id,
       bDate: this.bDate,
       height: this.height,
       gender: this.gender,

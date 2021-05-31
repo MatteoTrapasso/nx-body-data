@@ -29,10 +29,12 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
     const date = new Date();
 
 
+    this._id = this.fb.control(this._id, Validators.required);
     this.kcal = this.fb.control('', Validators.required);
     this.date = this.fb.control({value: date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear(), disabled: true});
 
     this.form = this.fb.group({ // form
+      _id: this._id, // attributo
       kcal: this.kcal, // attributo
       date: this.date, // attributo
     });

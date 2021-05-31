@@ -35,7 +35,7 @@ export class ButtonEditManyTestUserComponent implements OnInit {
       const keys = Object.keys(value);
       const result = {...value};
       keys.forEach(key => {
-        if (key !== 'id' && typeof result[key] === 'string') {
+        if (key !== '_id' && typeof result[key] === 'string') {
           result[key] = result[key] + ' edited' + new Date().getSeconds();
         }
       });
