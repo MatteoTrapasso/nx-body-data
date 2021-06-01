@@ -11,4 +11,13 @@ export class CreateBodyDataDTO {
 
   @ApiProperty()
   readonly user: string;
+
+  @ApiProperty()
+  readonly name: string;
+
+  @ApiProperty()
+  readonly gender: string;
+
+  @ApiProperty()
+  readonly bDate: string;
 }

@@ -20,7 +20,8 @@ export class UserEditComponent extends PopUpBaseComponent<User> {
   height: FormControl; // attributo
   bDate: FormControl; // attributo
   gender: FormControl; // attributo
-  nickname: FormControl; // attributo
+  name: FormControl; // attributo
+  weight: FormControl; // attributo
   value1 = "M";
   stateOptions = [{label: 'M', value: 'M'}, {label: 'F', value: 'F'}];
 
@@ -37,14 +38,16 @@ export class UserEditComponent extends PopUpBaseComponent<User> {
     this.bDate = this.fb.control('', Validators.required);
     this.height = this.fb.control('', Validators.required);
     this.gender = this.fb.control('', Validators.required);
-    this.nickname = this.fb.control('', Validators.required);
+    this.name = this.fb.control('', Validators.required);
+    this.weight = this.fb.control('', Validators.required);
 
     this.form = this.fb.group({ // form
       _id: this._id,
       bDate: this.bDate,
       height: this.height,
       gender: this.gender,
-      nickname: this.nickname
+      name: this.name,
+      weight: this.weight
     });
   }
 

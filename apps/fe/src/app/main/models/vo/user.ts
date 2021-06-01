@@ -3,7 +3,7 @@ export class User {
   public bDate: string = undefined;
   public height: number = undefined;
   public gender: string = undefined;
-  public nickname: string = undefined;
+  public name: string = undefined;
   public user: string = undefined;
   static selectId: (item: User) => string = item => item._id;
 }

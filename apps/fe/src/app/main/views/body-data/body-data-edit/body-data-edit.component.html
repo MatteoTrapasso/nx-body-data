@@ -17,6 +17,13 @@
 
         <div class="p-grid">
           <div class="p-col">
+            <label for="name"><strong>name</strong></label><br>
+            <input id="name" name="name" type="string" class="form-control" pInputText [formControl]="name"/>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
             <label for="height"><strong>height (cm)</strong></label><br>
             <input id="height" name="height" type="number" class="form-control" pInputText [formControl]="height"/>
           </div>
@@ -28,6 +35,21 @@
             <input id="weight" name="weight" type="number" class="form-control" pInputText [formControl]="weight"/>
           </div>
         </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="bDate"><strong>bDate</strong></label><br>
+            <input id="bDate" type="date" name="bDate" class="form-control" pInputText [formControl]="bDate"/>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label for="gender"><strong>gender</strong></label><br>
+            <p-selectButton id="gender" name="gender" [formControl]="gender" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+          </div>
+        </div>
+
         <div class="p-grid" style="display: none;">
           <div class="p-col">
             <label for="date"><strong>date</strong></label><br>

@@ -4,5 +4,8 @@ export class BodyData {
   public weight: number = undefined;
   public date: string = undefined;
   public user: string = undefined;
+  public name: string = undefined;
+  public gender: string = undefined;
+  public bDate: string = undefined;
   static selectId: (item: BodyData) => string = item => item._id;
 }

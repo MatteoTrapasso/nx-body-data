@@ -1,7 +1,6 @@
 export class Profile {
   given_name: string;
   family_name: string;
-  nickname: string;
   name: string;
   picture: string;
   locale: string;

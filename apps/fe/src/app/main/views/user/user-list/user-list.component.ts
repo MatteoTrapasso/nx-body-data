@@ -15,8 +15,6 @@ import {UserStoreActions, UserStoreSelectors, RootStoreState} from '@root-store/
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
-
-
   collection$: Observable<User[]>;
   cols: any;
   itemsSelected$: Observable<User[]>;

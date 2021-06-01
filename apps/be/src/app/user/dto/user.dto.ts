@@ -10,8 +10,11 @@ export class CreateUserDTO {
   readonly gender: string;
 
   @ApiProperty()
-  readonly nickname: string;
+  readonly name: string;
 
   @ApiProperty()
   readonly user: string;
+
+  @ApiProperty()
+  readonly weight: string;
 }

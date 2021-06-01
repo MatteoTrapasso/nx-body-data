@@ -5,6 +5,7 @@ export const UserSchema = new mongoose.Schema({
   bDate: String,
   height: Number,
   gender: String,
-  nickname: String,
+  name: String,
   user: String,
+  weight: String,
 }, { versionKey: false });

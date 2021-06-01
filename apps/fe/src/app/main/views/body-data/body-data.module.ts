@@ -19,6 +19,7 @@ import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from 'primeng/chart';
 import {TooltipModule} from 'primeng/tooltip';
+import {SelectButtonModule} from "primeng/selectbutton";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {TooltipModule} from 'primeng/tooltip';
         NgLetModule,
         ToolbarModule,
         ChartModule,
-        TooltipModule
+        TooltipModule,
+        SelectButtonModule
     ],
   providers: [],
   entryComponents: []
