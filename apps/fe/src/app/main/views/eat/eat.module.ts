@@ -18,6 +18,7 @@ import {ButtonCreateManyTestEatComponent} from './components/button-create-many-
 import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from "primeng/chart";
+import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import {ChartModule} from "primeng/chart";
     ButtonNewEatComponent,
     ButtonDeleteEatComponent,
     ButtonEditManyTestEatComponent,
-    ButtonCreateManyTestEatComponent
+    ButtonCreateManyTestEatComponent,
+    ButtonCreateManyTestEatComponent,
+    MetabolicValueComponent
   ],
     imports: [
         CommonModule,

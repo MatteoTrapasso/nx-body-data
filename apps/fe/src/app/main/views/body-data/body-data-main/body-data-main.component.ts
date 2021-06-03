@@ -21,7 +21,6 @@ export class BodyDataMainComponent implements OnInit {
   bodyDataOptions: any;
 
   ngOnInit(): void {
-
     this.bodyDatas$ = this.store$.select(
       BodyDataStoreSelectors.selectAll
     ).pipe(map((values: BodyData[]) => {
@@ -101,24 +100,3 @@ export class BodyDataMainComponent implements OnInit {
 export const makeBmi = (height, weight) => {
   return weight / ((height / 100) * 2);
 };
-
-function getAge(dateString)
-{
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
-  {
-    age--;
-  }
-  return age;
-}
-
-export const metabolic = (height, weight, gender, bDate) => {
-  if (gender == 'M') {
-    return 66.473 + (13.7516 * weight) + (5.0033 * height) - (getAge(bDate) * 6.755)
-  } else {
-    return 655.095 + (9.563 * weight) + (1.8496 * height) - (getAge(bDate) * 4.6756)
-  }
-}
