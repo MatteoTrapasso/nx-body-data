@@ -49,13 +49,15 @@
 - [ x ] eliminare name da signup auth0
 - [ x ] inserire immagine con currrentUser.picture
 - [ x ] aggiornare user con ultimo salvataggio bmi (permettere modifica da user?)
-- [ x ] sostituire name con usr.nickname
+- [ x ] sostituire name con user.nickname
 - [ x ] fix button position in eat page
 - [   ] inserire valori userData nella tabella
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [   ] nascondere gender, bDate e name dopo aver concluso test salvataggio e aggiornamento user
 - [   ] creare lista cibo + calorie (merge tra liste)
-- [   ] aggiungere calcolo metabolismo basale (harris and benedict)
+- [   ] aggiungere calcolo metabolismo basale (harris and benedict) (funzione già scritta in body-data-main)
   - servono età e sesso [RECUPERATI]
+    Femmine: 655,095 + (9,563 x peso in kg) + (1,8496 x altezza in cm) – (età x 4,6756) 
+    Maschi: 66,473 + (13,7516 x peso in kg) + (5,0033 x altezza in cm) – (età x 6,755)
 - [   ] rendere sezione user come Card
 - [   ] profilo amministratore per monitorare utenti
