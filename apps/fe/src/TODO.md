@@ -47,9 +47,9 @@
 - [ x ] fix tasto edit (ora duplica!), non passa _id dal form
 - [ x ] inserire campi, gender e data di nascita all'inseriemento del bmi
 - [ x ] eliminare name da signup auth0
-- [   ] inserire immagine con currrentUser.picture
-- [   ] aggiornare user con ultimo salvataggio bmi (permettere modifica da user?, eliminare user page?)
-- [   ] sostituire name con usr.nickname
+- [ x ] inserire immagine con currrentUser.picture
+- [ x ] aggiornare user con ultimo salvataggio bmi (permettere modifica da user?)
+- [ x ] sostituire name con usr.nickname
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [   ] nascondere gender, bDate e name dopo aver concluso test salvataggio e aggiornamento user
 - [   ] creare lista cibo + calorie (merge tra liste)

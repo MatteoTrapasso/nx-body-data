@@ -1,38 +1,47 @@
 <div align="center">
-  <h1 style="color: #898989;">USER</h1>
-  <p-card>
-    <table id="user">
-      <tr>
-        <td><strong>nickname</strong></td>
-        <td><pre>{{user$["currentUser"]| async | json}}</pre></td>
-      </tr>
+  <p-card header="{{user$[''] | async | json}}" [style]="{'width': '50rem', 'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+      <img style="border-radius: 50%; width: 30%" alt="Card" src="https://s.gravatar.com/avatar/273db8319071e50f7b78bc899f9f64cf?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fma.png">
+    </ng-template>
+    <table id="user" style="width: 100%">
       <tr>
         <td><strong>email</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
       <tr>
         <td><strong>bDate</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
       <tr>
         <td><strong>gender</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
       <tr>
         <td><strong>height</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
       <tr>
         <td><strong>weight</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
       <tr>
         <td><strong>last check date</strong></td>
-        <td><pre>{{user$[''] | async | json}}</pre></td>
+        <td>
+          <pre>{{user$[''] | async | json}}</pre>
+        </td>
       </tr>
     </table>
   </p-card>
 
-  <pre>{{user$|async|json}}</pre>
 
 </div>
