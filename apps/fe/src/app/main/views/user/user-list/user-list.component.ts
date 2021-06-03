@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {select, Store} from '@ngrx/store';
+import {BodyDataStoreActions, BodyDataStoreSelectors, RootStoreState, UserStoreSelectors} from '@root-store/index';
 import {Observable} from 'rxjs';
+import {BodyData} from '@models/vo/body-data';
 import {RouterStoreActions} from '@root-store/router-store/index';
-import {tap} from 'rxjs/operators';
+import {last, take, takeLast, tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
-import {User} from "@models/vo/user";
-import {UserStoreActions, UserStoreSelectors, RootStoreState} from '@root-store/index';
 
 @Component({
   selector: 'app-user-list',
@@ -15,65 +15,62 @@ import {UserStoreActions, UserStoreSelectors, RootStoreState} from '@root-store/
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
-  collection$: Observable<User[]>;
+
+  user$: Observable<any>;
   cols: any;
-  itemsSelected$: Observable<User[]>;
+  itemsSelected$: Observable<BodyData[]>;
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
-    console.log('UserComponent.constructor()');
+    console.log('BodyDataListComponent.constructor()');
   }
 
   ngOnInit(): void {
-    console.log('UserListComponent.ngOnInit()');
+    console.log('BodyDataListComponent.ngOnInit()');
 
     this.itemsSelected$ = this.store$.pipe(
-      select(UserStoreSelectors.selectItemsSelected)
+      select(BodyDataStoreSelectors.selectItemsSelected)
     );
 
-    this.collection$ = this.store$.select(
-      UserStoreSelectors.selectAll
-    ).pipe(
-      tap(values => {
-        if (values && values.length > 0) {
-          this.cols = Object.keys(values[0]);
-        }
-      })
+
+
+    this.user$=this.store$.pipe(
+      select(UserStoreSelectors.selectUserData)
     );
 
     this.store$.dispatch(
-      UserStoreActions.SearchRequest({queryParams: {}})
+      BodyDataStoreActions.SearchRequest({queryParams: {}})
     );
 
   }
 
   onEdit(item): void {
-    console.log('UserListComponent.onEdit()');
+    console.log('BodyDataListComponent.onEdit()');
 
-    const data: PopUpData<User> = {
+    const data: PopUpData<BodyData> = {
       item,
-      props: {title: 'Edit User', route: 'user'}
+      props: {title: 'Edit BodyData', route: 'body-data'}
     };
 
     // apro la popUP
     this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
-      path: ['user', {outlets: {popUp: ['edit']}}],
+      path: ['body-data', {outlets: {popUp: ['edit']}}],
       data
     }));
 
   }
 
   onCopy(value): void {
-    console.log('UserListComponent.onCopy()');
+    console.log('BodyDataListComponent.onCopy()');
 
     const item = {...{}, ...value, ...{id: null}};
-    const data: PopUpData<User> = {
+    const data: PopUpData<BodyData> = {
       item,
-      props: {title: 'Copy User', route: 'user'}
+      props: {title: 'Copy BodyData', route: 'body-data'}
     };
 
     this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
-      path: ['user', {outlets: {popUp: ['edit']}}],
+      path: ['body-data', {outlets: {popUp: ['edit']}}],
       data
     }));
 
@@ -84,16 +81,16 @@ export class UserListComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
       accept: () => {
-        this.store$.dispatch(UserStoreActions.DeleteRequest({item}));
+        this.store$.dispatch(BodyDataStoreActions.DeleteRequest({item}));
       }
     });
 
   }
 
-  onSelectionChange(items: User[]): void {
-    console.log('UserListComponent.onSelectionChange()');
+  onSelectionChange(items: BodyData[]): void {
+    console.log('BodyDataListComponent.onSelectionChange()');
     console.log('items', items);
-    this.store$.dispatch(UserStoreActions.SelectItems({items}));
+    this.store$.dispatch(BodyDataStoreActions.SelectItems({items}));
   }
 
 }

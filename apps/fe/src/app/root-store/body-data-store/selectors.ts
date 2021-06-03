@@ -1,4 +1,4 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 
 import {adapter, State} from './state';
 import {Names} from './names';
@@ -21,3 +21,10 @@ export const {
   selectIdsSelected,
   selectResponses,
 } = adapter.getCrudSelectors(selectState);
+
+export const selectLastItem = createSelector(
+  selectAll,
+  (values) => values? values[0] : {}
+)
+
+

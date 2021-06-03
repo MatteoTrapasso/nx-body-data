@@ -19,6 +19,7 @@ import {ChartModule} from "primeng/chart";
 import {UserMainComponent} from "@views/user/user-main/user-main.component";
 import {UserListComponent} from "@views/user/user-list/user-list.component";
 import {SelectButtonModule} from "primeng/selectbutton";
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -30,22 +31,23 @@ import {SelectButtonModule} from "primeng/selectbutton";
     ButtonEditManyTestUserComponent,
     ButtonCreateManyTestUserComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    UserRoutingModule,
-    TableModule,
-    DialogModule,
-    ButtonModule,
-    InputTextModule,
-    PipesModule,
-    SearchModule,
-    NgLetModule,
-    ToolbarModule,
-    ChartModule,
-    SelectButtonModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        UserRoutingModule,
+        TableModule,
+        DialogModule,
+        ButtonModule,
+        InputTextModule,
+        PipesModule,
+        SearchModule,
+        NgLetModule,
+        ToolbarModule,
+        ChartModule,
+        SelectButtonModule,
+        CardModule
+    ],
   providers: [],
   entryComponents: []
 })

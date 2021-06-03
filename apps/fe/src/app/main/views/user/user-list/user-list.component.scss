@@ -4,6 +4,32 @@
   }
 }
 
+#user {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#user td, #user th {
+  border: 0px solid #ddd;
+  padding: 8px;
+}
+
+#user tr:nth-child(even) {
+  background-color: #343a40;
+}
+
+#user td:hover {
+  background-color: #888888;
+}
+
+#user th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #ced1d4;
+}
+
 @media screen and (max-width: 40rem) {
   :host ::ng-deep {
     .p-datatable {
