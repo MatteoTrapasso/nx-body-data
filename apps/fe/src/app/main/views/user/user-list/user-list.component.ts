@@ -33,8 +33,7 @@ export class UserListComponent implements OnInit {
     );
 
 
-
-    this.user$=this.store$.pipe(
+    this.user$ = this.store$.pipe(
       select(UserStoreSelectors.selectUserData)
     );
 

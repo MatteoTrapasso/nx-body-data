@@ -12,7 +12,7 @@ import {DialogModule} from 'primeng/dialog';
     <div class="p-grid p-dir-col" style="padding-top: 10px">
       <div class="p-col">
         <p-button pTooltip="BASAL METABOLISM" tooltipPosition="left" (click)="showPositionDialog('right')"
-                  icon="pi pi-arrow-left" label="{{metabolic$ | async}} kcal"
+                  icon="pi pi-info-circle" label="{{metabolic$ | async}} kcal"
                   styleClass="p-button-warning"></p-button>
       </div>
     </div>
