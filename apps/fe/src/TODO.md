@@ -63,6 +63,7 @@
 - [ x ] problema campi undefined user!!
 - [ x ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [ x ] nascondere gender, bDate e name?
+- [   ] rendere tabella user e home per mobile
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
 - [   ] creare lista cibo + calorie (merge tra liste)
 - [   ] profilo amministratore per monitorare utenti

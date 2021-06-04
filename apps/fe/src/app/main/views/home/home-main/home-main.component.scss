@@ -1,0 +1,25 @@
+#bmi {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#bmi td, #bmi th {
+  border: 0px solid #ddd;
+  padding: 8px;
+}
+
+#bmi tr:nth-child(even) {
+  background-color: #343a40;
+}
+
+#bmi tr:hover {
+  background-color: #888888;
+}
+
+#bmi th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: #ced1d4;
+}
