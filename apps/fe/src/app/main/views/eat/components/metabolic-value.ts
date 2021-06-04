@@ -45,20 +45,14 @@ export class MetabolicValueComponent implements OnInit {
 
   ngOnInit() {
 
-    this.itemsSelected$ = this.store$.pipe(
-      select(EatStoreSelectors.selectItemsSelected)
-    );
-
     this.metabolic$ = this.store$.select(
       BodyDataStoreSelectors.selectLastItem
     ).pipe(map((value: BodyData) => {
       return metabolic(value.height, value.weight, value.gender, value.bDate)
     }));
 
-    this.store$.dispatch(
-      EatStoreActions.SearchRequest({queryParams: {}})
-    );
   }
+
   showModalDialog() {
     this.displayModal = true;
   }

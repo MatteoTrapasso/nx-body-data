@@ -57,7 +57,7 @@
     Maschi: 66,473 + (13,7516 x peso in kg) + (5,0033 x altezza in cm) – (età x 6,755)
 - [ x ] rendere sezione user come Card
 - [   ] aggiornare metabolic (alla prima chiamata è vuoto e nonn si aggiorna dopo inserimento nuovo bmi)
-- [   ] inserire valori userData nella tabella
+- [   ] inserire valori userData nella tabella (anche img)
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [   ] nascondere gender, bDate e name dopo aver concluso test salvataggio e aggiornamento user
 - [   ] creare lista cibo + calorie (merge tra liste)

@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {RootStoreState, SlideMenuStoreActions, SlideMenuStoreSelectors} from '@root-store/index';
+import {BodyDataStoreActions, RootStoreState, SlideMenuStoreActions, SlideMenuStoreSelectors} from '@root-store/index';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -28,6 +28,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.open$ = this.store$.select(SlideMenuStoreSelectors.selectOpen);
+    this.store$.dispatch(BodyDataStoreActions.SearchRequest({queryParams:{}}));
   }
+
 
 }

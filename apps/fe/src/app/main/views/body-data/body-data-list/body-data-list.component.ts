@@ -43,10 +43,6 @@ export class BodyDataListComponent implements OnInit {
       })
     );
 
-    this.store$.dispatch(
-      BodyDataStoreActions.SearchRequest({queryParams: {}})
-    );
-
   }
 
   onEdit(item): void {
