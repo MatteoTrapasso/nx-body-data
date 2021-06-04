@@ -25,7 +25,5 @@ export const {
 
 export const selectLastItem = createSelector(
   selectAll,
-  (values) => values? values[values.length-1] : {}
+  (values) => values.length ? values[values.length - 1] : new BodyData()
 )
-
-

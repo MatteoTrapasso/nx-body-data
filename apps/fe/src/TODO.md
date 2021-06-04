@@ -60,7 +60,7 @@
 - [ x ] inserire valori userData nella tabella (anche img)
 - [ x ] cambiare icona metabolismo
 - [ x ] selectLastItem prende il primo elemento, non l'ultimo
-- [   ] problema campi undefined user!!
+- [ x ] problema campi undefined user!!
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [   ] nascondere gender, bDate e name?
 - [   ] creare lista cibo + calorie (merge tra liste)
