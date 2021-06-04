@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {BodyDataStoreSelectors, RootStoreState} from '@root-store/index';
+import {BodyDataStoreSelectors, EatStoreActions, EatStoreSelectors, RootStoreState} from '@root-store/index';
 import {BodyData} from "@models/vo/body-data";
 import {map} from "rxjs/operators";
 import {DialogModule} from 'primeng/dialog';
@@ -9,9 +9,10 @@ import {DialogModule} from 'primeng/dialog';
 @Component({
   selector: 'app-metabolic-value-eat',
   template: `
-    <div class="p-grid p-dir-col">
+    <div class="p-grid p-dir-col" style="padding-top: 10px">
       <div class="p-col">
-        <p-button (click)="showPositionDialog('right')" icon="pi pi-arrow-left" label="{{metabolic$ | async}}"
+        <p-button pTooltip="BASAL METABOLISM" tooltipPosition="left" (click)="showPositionDialog('right')"
+                  icon="pi pi-arrow-left" label="{{metabolic$ | async}} kcal"
                   styleClass="p-button-warning"></p-button>
       </div>
     </div>
@@ -32,52 +33,32 @@ import {DialogModule} from 'primeng/dialog';
 export class MetabolicValueComponent implements OnInit {
 
   metabolic$: Observable<any>
+  itemsSelected$: Observable<any>
+  displayModal: boolean;
+  displayBasic: boolean;
+  displayPosition: boolean;
+  position: string;
 
   constructor(private readonly store$: Store<RootStoreState.State>) {
   }
 
+
   ngOnInit() {
+
+    this.itemsSelected$ = this.store$.pipe(
+      select(EatStoreSelectors.selectItemsSelected)
+    );
+
     this.metabolic$ = this.store$.select(
       BodyDataStoreSelectors.selectLastItem
     ).pipe(map((value: BodyData) => {
       return metabolic(value.height, value.weight, value.gender, value.bDate)
     }));
 
-
-    function getAge(dateString) {
-      const today = new Date();
-      const birthDate = new Date(dateString);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      return age;
-    }
-
-    function metabolic(height: any, weight: any, gender: any, bDate: any) {
-      if (gender == 'M') {
-        const i = 66.473 + (13.7516 * weight) + (5.0033 * height) - (getAge(bDate) * 6.755)
-        return i
-      } else {
-        return 655.095 + (9.563 * weight) + (1.8496 * height) - (getAge(bDate) * 4.6756)
-      }
-    }
+    this.store$.dispatch(
+      EatStoreActions.SearchRequest({queryParams: {}})
+    );
   }
-
-
-  displayModal: boolean;
-
-  displayBasic: boolean;
-
-  displayBasic2: boolean;
-
-  displayMaximizable: boolean;
-
-  displayPosition: boolean;
-
-  position: string;
-
   showModalDialog() {
     this.displayModal = true;
   }
@@ -86,19 +67,33 @@ export class MetabolicValueComponent implements OnInit {
     this.displayBasic = true;
   }
 
-  showBasicDialog2() {
-    this.displayBasic2 = true;
-  }
-
-  showMaximizableDialog() {
-    this.displayMaximizable = true;
-  }
-
   showPositionDialog(position: string) {
     this.position = position;
     this.displayPosition = true;
   }
 }
+
+export const getAge = (dateString) => {
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+export const metabolic = (height: any, weight: any, gender: any, bDate: any) => {
+  if (gender == 'M') {
+    const i = 66.473 + (13.7516 * weight) + (5.0033 * height) - (getAge(bDate) * 6.755)
+    return parseInt(String(i))
+  } else {
+    const i = 655.095 + (9.563 * weight) + (1.8496 * height) - (getAge(bDate) * 4.6756)
+    return parseInt(String(i))
+  }
+};
+
 
 
 

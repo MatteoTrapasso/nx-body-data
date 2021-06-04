@@ -19,6 +19,7 @@ import {NgLetModule} from '@core/directive/ng-let.directive';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from "primeng/chart";
 import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
+import {TooltipModule} from "primeng/tooltip";
 
 @NgModule({
   declarations: [
@@ -32,22 +33,26 @@ import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
     ButtonCreateManyTestEatComponent,
     MetabolicValueComponent
   ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        EatRoutingModule,
-        TableModule,
-        DialogModule,
-        ButtonModule,
-        InputTextModule,
-        PipesModule,
-        SearchModule,
-        NgLetModule,
-        ToolbarModule,
-        ChartModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    EatRoutingModule,
+    TableModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    PipesModule,
+    SearchModule,
+    NgLetModule,
+    ToolbarModule,
+    ChartModule,
+    TooltipModule
+  ],
   providers: [],
+  exports: [
+
+  ],
   entryComponents: []
 })
 export class EatModule {
