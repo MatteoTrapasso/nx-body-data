@@ -59,9 +59,9 @@
 - [ x ] aggiornare metabolic (alla prima chiamata è vuoto e nonn si aggiorna dopo inserimento nuovo bmi)
 - [ x ] inserire valori userData nella tabella (anche img)
 - [ x ] cambiare icona metabolismo
-- [   ] problema campi vuoti user!!
+- [   ] problema campi undefined user!!
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
-- [   ] nascondere gender, bDate e name dopo aver concluso test salvataggio e aggiornamento user
+- [   ] nascondere gender, bDate e name?
 - [   ] creare lista cibo + calorie (merge tra liste)
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
 - [   ] profilo amministratore per monitorare utenti
