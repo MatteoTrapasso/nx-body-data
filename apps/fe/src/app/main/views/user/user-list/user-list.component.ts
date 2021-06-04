@@ -18,7 +18,6 @@ export class UserListComponent implements OnInit {
   user$: Observable<any>;
   cols: any;
   itemsSelected$: Observable<BodyData[]>;
-  private last$: Observable<any>;
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {

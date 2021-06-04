@@ -2,6 +2,7 @@ import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/sto
 
 import {adapter, State} from './state';
 import {Names} from './names';
+import {BodyData} from "@models/vo/body-data";
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {

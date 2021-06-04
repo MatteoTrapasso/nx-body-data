@@ -6,40 +6,47 @@
     <table id="user" style="width: 100%">
       <tr>
         <td><strong>email</strong></td>
+        <td><i class="pi pi-envelope"></i></td>
         <td>
           <pre>{{user.currentUser.email}}</pre>
         </td>
       </tr>
       <tr>
         <td><strong>birth date</strong></td>
+        <td><i class="pi pi-calendar"></i></td>
         <td>
           <pre>{{user.lastItem.bDate}}</pre>
         </td>
       </tr>
       <tr>
         <td><strong>gender</strong></td>
+        <td><i class="pi pi-user"></i></td>
         <td>
           <pre>{{user.lastItem.gender}}</pre>
         </td>
       </tr>
       <tr>
         <td><strong>height</strong></td>
+        <td><i class="pi pi-chart-bar"></i></td>
         <td>
           <pre>{{user.lastItem.height}} cm</pre>
         </td>
       </tr>
       <tr>
         <td><strong>weight</strong></td>
+        <td><i class="pi pi-chart-bar"></i></td>
         <td>
           <pre>{{user.lastItem.weight}} kg</pre>
         </td>
       </tr>
       <tr>
-        <td><strong>last check date</strong></td>
+        <td><strong>last check date</strong>
+        <td><i class="pi pi-calendar"></i></td>
         <td>
           <pre>{{user.lastItem.date}}</pre>
         </td>
       </tr>
     </table>
+    <pre>{{user.lastItem|async|json}}</pre>
   </p-card>
 </div>
