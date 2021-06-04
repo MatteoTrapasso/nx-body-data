@@ -37,14 +37,6 @@ export class UserListComponent implements OnInit {
       select(UserStoreSelectors.selectUserData)
     );
 
-    this.last$ = this.store$.pipe(
-      select(BodyDataStoreSelectors.selectLastItem)
-    );
-
-    this.store$.dispatch(
-      BodyDataStoreActions.SearchRequest({queryParams: {}})
-    );
-
   }
 
   onEdit(item): void {
