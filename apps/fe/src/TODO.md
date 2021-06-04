@@ -59,6 +59,7 @@
 - [ x ] aggiornare metabolic (alla prima chiamata è vuoto e nonn si aggiorna dopo inserimento nuovo bmi)
 - [ x ] inserire valori userData nella tabella (anche img)
 - [ x ] cambiare icona metabolismo
+- [ x ] selectLastItem prende il primo elemento, non l'ultimo
 - [   ] problema campi undefined user!!
 - [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
 - [   ] nascondere gender, bDate e name?

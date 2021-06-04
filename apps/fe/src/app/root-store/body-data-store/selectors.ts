@@ -24,7 +24,7 @@ export const {
 
 export const selectLastItem = createSelector(
   selectAll,
-  (values) => values? values[0] : {}
+  (values) => values? values[values.length-1] : {}
 )
 
 

@@ -4,7 +4,6 @@ import {BodyDataStoreActions, BodyDataStoreSelectors, RootStoreState, UserStoreS
 import {Observable} from 'rxjs';
 import {BodyData} from '@models/vo/body-data';
 import {RouterStoreActions} from '@root-store/router-store/index';
-import {last, take, takeLast, tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 
@@ -19,6 +18,7 @@ export class UserListComponent implements OnInit {
   user$: Observable<any>;
   cols: any;
   itemsSelected$: Observable<BodyData[]>;
+  private last$: Observable<any>;
 
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
@@ -35,6 +35,10 @@ export class UserListComponent implements OnInit {
 
     this.user$ = this.store$.pipe(
       select(UserStoreSelectors.selectUserData)
+    );
+
+    this.last$ = this.store$.pipe(
+      select(BodyDataStoreSelectors.selectLastItem)
     );
 
     this.store$.dispatch(
