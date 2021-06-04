@@ -61,8 +61,8 @@
 - [ x ] cambiare icona metabolismo
 - [ x ] selectLastItem prende il primo elemento, non l'ultimo
 - [ x ] problema campi undefined user!!
-- [   ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
-- [   ] nascondere gender, bDate e name?
-- [   ] creare lista cibo + calorie (merge tra liste)
+- [ x ] autocomplete height, gender, bDate in bmi dal secondo inserimento in poi
+- [ x ] nascondere gender, bDate e name?
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
+- [   ] creare lista cibo + calorie (merge tra liste)
 - [   ] profilo amministratore per monitorare utenti
