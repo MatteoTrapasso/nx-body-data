@@ -1,7 +1,7 @@
 <div align="center" *ngLet="user$ | async as user">
-  <p-card header="{{user.currentUser.nickname}}" [style]="{'width': '50rem', 'margin-bottom': '2em'}"  style="overflow-x:auto">
+  <p-card header="{{user.currentUser.nickname}}" [style]="{'width': '50rem', 'margin-bottom': '2em'}"  style="overflow-x:auto;background-color: #20262e">
     <ng-template pTemplate="header">
-      <img style="border-radius: 50%; width: 30%" alt="Card" src="{{user.currentUser.picture}}">
+      <img style="border-radius: 50%; width: 30%" alt="User" src="{{user.currentUser.picture}}">
     </ng-template>
     <ng-template pTemplate="body">
     <table id="user" style="width: 100%">
