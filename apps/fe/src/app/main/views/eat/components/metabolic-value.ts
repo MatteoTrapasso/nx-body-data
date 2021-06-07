@@ -24,7 +24,7 @@ import {DialogModule} from 'primeng/dialog';
         processing, protein synthesis, and ion transport.
       </p>
       <p style="font-size: x-small">
-        * roughly estimated with the Harris-Benedict equation
+        * estimated with the Harris-Benedict equation
       </p>
       <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
