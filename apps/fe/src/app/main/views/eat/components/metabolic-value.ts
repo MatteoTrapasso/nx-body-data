@@ -21,7 +21,11 @@ import {DialogModule} from 'primeng/dialog';
               [draggable]="false" [resizable]="false">
       <p>Basal metabolic rate (BMR) is the total number of calories that your body needs to perform basic,
         life-sustaining functions. These basal functions include circulation, breathing, cell production, nutrient
-        processing, protein synthesis, and ion transport.</p>
+        processing, protein synthesis, and ion transport.
+      </p>
+      <p style="font-size: x-small">
+        * roughly estimated with the Harris-Benedict equation
+      </p>
       <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
       </ng-template>
