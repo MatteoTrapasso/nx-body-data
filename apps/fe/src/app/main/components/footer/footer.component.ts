@@ -7,7 +7,7 @@ import {RootStoreState} from '../../../root-store/';
   template: `
     <footer class="footer">
             <div class="float-left">
-              <small>&#160;footer&#160;</small>
+              <small>&#160;© application created by Traps&#160;</small>
             </div>
     </footer>
   `,
