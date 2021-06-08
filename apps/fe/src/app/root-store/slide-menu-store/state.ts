@@ -52,7 +52,7 @@ export const initialState: State = {
     },
     {
       label: 'Eat',
-      icon: 'pi pi-fw pi-calendar-plus',
+      icon: 'pi pi-fw pi-calendar',
       // @ts-ignore
       roles: ['roleA'],
       command: (event$) => {
@@ -64,6 +64,24 @@ export const initialState: State = {
           item: {
             data: {},
             breadcrumb: ['Sezione ', 'Eat'] // breadcrumb
+          }
+        }));
+      }
+    },
+    {
+      label: 'EatDaily',
+      icon: 'pi pi-fw pi-calendar-plus',
+      // @ts-ignore
+      roles: ['roleA'],
+      command: (event$) => {
+        // invoco il router per cambiare pagina
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat-daily']}));
+
+        // salvo nello store del menù l'elemento selezionato.
+        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
+          item: {
+            data: {},
+            breadcrumb: ['Sezione ', 'EatDaily'] // breadcrumb
           }
         }));
       }

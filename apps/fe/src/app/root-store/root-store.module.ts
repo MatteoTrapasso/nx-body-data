@@ -11,6 +11,7 @@ import { BodyDataStoreModule } from '@root-store/body-data-store';
 import { AuthStoreModule } from '@root-store/auth-store';
 import {EatStoreModule} from "@root-store/eat-store";
 import {UserStoreModule} from "@root-store/user-store/user-store.module";
+import {EatDailyStoreModule} from "@root-store/eat-daily-store";
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {UserStoreModule} from "@root-store/user-store/user-store.module";
     UserStoreModule,
     BodyDataStoreModule,
     AuthStoreModule,
+    EatDailyStoreModule
   ],
   declarations: []
 })

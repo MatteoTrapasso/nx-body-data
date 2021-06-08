@@ -65,5 +65,6 @@
 - [ x ] nascondere gender, bDate e name?
 - [ x ] rendere tabella user e home per mobile
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
-- [   ] creare lista cibo + calorie (merge tra liste)
+- [   ] be food (manca inserire i campi corretti)
+- [   ] lista food
 - [   ] profilo amministratore per monitorare utenti
