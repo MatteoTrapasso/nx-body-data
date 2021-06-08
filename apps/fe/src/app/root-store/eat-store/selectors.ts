@@ -1,7 +1,9 @@
-import {createFeatureSelector, MemoizedSelector} from '@ngrx/store';
+import {createFeatureSelector, createSelector, MemoizedSelector} from '@ngrx/store';
 
 import {adapter, State} from './state';
 import {Names} from './names';
+import {RouterStoreSelectors} from "@root-store/router-store/index";
+import {getBaseDate} from "@core/utils/date-utils";
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
@@ -21,3 +23,23 @@ export const {
   selectIdsSelected,
   selectResponses,
 } = adapter.getCrudSelectors(selectState);
+
+export const selectEatDaily = createSelector(
+  RouterStoreSelectors.selectRouteParams,
+  selectAll,
+  (params, values) => {
+    const date = params.date ? params.date : getBaseDate(new Date())
+    console.log('date', date)
+    const result = values.findIndex(value => {
+      const dateA =  value.date
+      const dateB =  date.split('-').join('/')
+      console.log('dateB', dateB)
+      console.log('dateA', dateA)
+      return dateA === dateB
+    })
+    if(result === -1){
+      return {date, meals:[]}
+    }
+    return values[result]
+  }
+)

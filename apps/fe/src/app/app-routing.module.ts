@@ -17,11 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./main/views/eat/eat.module').then(m => m.EatModule)
   },
   {
-    path: 'eat-daily',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./main/views/eat-daily/eat-daily.module').then(m => m.EatDailyModule)
-  },
-  {
     path: 'user',
     canActivate: [AuthGuard],
     loadChildren: () => import('./main/views/user/user.module').then(m => m.UserModule)

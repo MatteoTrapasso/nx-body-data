@@ -43,9 +43,9 @@ export class EatListComponent implements OnInit {
       })
     );
 
-    this.store$.dispatch(
+/*    this.store$.dispatch(
       EatStoreActions.SearchRequest({queryParams: {}})
-    );
+    );*/
 
   }
 

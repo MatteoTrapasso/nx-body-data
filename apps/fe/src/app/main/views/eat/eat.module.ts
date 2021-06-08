@@ -20,6 +20,7 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from "primeng/chart";
 import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
 import {TooltipModule} from "primeng/tooltip";
+import {EatDailyDetailComponent} from './eat-daily-detail/eat-daily-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {TooltipModule} from "primeng/tooltip";
     ButtonEditManyTestEatComponent,
     ButtonCreateManyTestEatComponent,
     ButtonCreateManyTestEatComponent,
-    MetabolicValueComponent
+    MetabolicValueComponent,
+    EatDailyDetailComponent
   ],
   imports: [
     CommonModule,
@@ -50,9 +52,7 @@ import {TooltipModule} from "primeng/tooltip";
     TooltipModule
   ],
   providers: [],
-  exports: [
-
-  ],
+  exports: [],
   entryComponents: []
 })
 export class EatModule {

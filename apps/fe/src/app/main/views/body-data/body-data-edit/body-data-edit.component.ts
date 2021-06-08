@@ -3,6 +3,7 @@ import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop
 import {BodyData} from '@models/vo/body-data';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BodyDataStoreActions} from '@root-store/body-data-store';
+import {getBaseDate} from "@core/utils/date-utils";
 
 
 @Component({
@@ -39,7 +40,7 @@ export class BodyDataEditComponent extends PopUpBaseComponent<BodyData> {
     this.bDate = this.fb.control('', Validators.required);
     this.gender = this.fb.control('', Validators.required);
     this.date = this.fb.control({
-      value: date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear(),
+      value: getBaseDate(date),
       disabled: true
     });
 
