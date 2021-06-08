@@ -21,6 +21,7 @@ import {ChartModule} from "primeng/chart";
 import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
 import {TooltipModule} from "primeng/tooltip";
 import {EatDailyDetailComponent} from './eat-daily-detail/eat-daily-detail.component';
+import {NavigationBarComponent} from "@views/eat/components/navigationBar";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {EatDailyDetailComponent} from './eat-daily-detail/eat-daily-detail.compo
     ButtonCreateManyTestEatComponent,
     ButtonCreateManyTestEatComponent,
     MetabolicValueComponent,
-    EatDailyDetailComponent
+    EatDailyDetailComponent,
+    NavigationBarComponent
   ],
   imports: [
     CommonModule,
