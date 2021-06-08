@@ -5,7 +5,7 @@ import {EatDailyEditComponent} from "@views/eat-daily/eat-edit/eat-daily-edit.co
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: 'main', /*/:date*/
     component: EatDailyMainComponent,
     pathMatch: 'full'
   },

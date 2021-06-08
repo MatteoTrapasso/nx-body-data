@@ -20,6 +20,8 @@ import {ChartModule} from "primeng/chart";
 import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
 import {TooltipModule} from "primeng/tooltip";
 import {EatDailyListComponent} from "@views/eat-daily/eat-list/eat-daily-list.component";
+import {MealComponent} from "@views/eat-daily/components/meal.component";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {EatDailyListComponent} from "@views/eat-daily/eat-list/eat-daily-list.co
     ButtonEditManyTestEatComponent,
     ButtonCreateManyTestEatDailyComponent,
     ButtonCreateManyTestEatDailyComponent,
+    MealComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +49,8 @@ import {EatDailyListComponent} from "@views/eat-daily/eat-list/eat-daily-list.co
     NgLetModule,
     ToolbarModule,
     ChartModule,
-    TooltipModule
+    TooltipModule,
+    RippleModule
   ],
   providers: [],
   exports: [
