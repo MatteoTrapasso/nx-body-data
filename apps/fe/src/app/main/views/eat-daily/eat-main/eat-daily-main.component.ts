@@ -36,6 +36,28 @@ export class EatDailyMainComponent implements OnInit {
               fill: false,
               borderColor: '#42A5F5',
             },
+            {
+              label: 'fat',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#f5ce42',
+            },
+            {
+              label: 'proteins',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#F5425DFF',
+            },
+            {
+              label: '\n' +
+                'carbohydrates',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#69f542',
+            },
           ]
         };
 
