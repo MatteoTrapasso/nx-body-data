@@ -1,12 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {select, Store} from "@ngrx/store";
-import {BodyDataStoreSelectors, EatStoreSelectors, RootStoreSelectors, RouterStoreSelectors} from "@root-store/index";
+import {
+  BodyDataStoreActions,
+  BodyDataStoreSelectors, EatStoreActions,
+  EatStoreSelectors,
+  RootStoreSelectors,
+  RouterStoreActions,
+  RouterStoreSelectors
+} from "@root-store/index";
 import {selectEatDaily} from "@root-store/eat-store/selectors";
 import {map} from "rxjs/operators";
 import {BodyData} from "@models/vo/body-data";
 import {makeBmi} from "@views/body-data/body-data-main/body-data-main.component";
 import {Eat} from "@models/vo/eat";
+import {PopUpData} from "@root-store/router-store/pop-up-base.component";
+import {Meal} from "@models/vo/meal";
+import {ConfirmationService} from "primeng/api";
 
 @Component({
   selector: 'nx-body-data-eat-daily-detail',
@@ -25,7 +35,8 @@ export class EatDailyDetailComponent implements OnInit {
     {foods: [{},{},{}], date: '18/06/2021', type: 'pranzo', user: 'user', _id: 'id'}
   ]
 
-  constructor(private store$: Store) {
+  constructor(private store$: Store,
+  private confirmationService: ConfirmationService) {
   }
 
   ngOnInit(): void {
@@ -119,5 +130,48 @@ export class EatDailyDetailComponent implements OnInit {
         }
       };
     }
+
+  onEdit(item): void {
+    console.log('EatDailyDetailComponent.onEdit()');
+
+    const data: PopUpData<Meal> = {
+      item,
+      props: {title: 'Edit Meal', route: 'eat/daily-detail/:data'}
+    };
+
+    // apro la popUP
+    this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
+      path: ['eat/daily-detail/:data', {outlets: {popUp: ['edit']}}],
+      data
+    }));
+
+  }
+
+  onCopy(value): void {
+    console.log('EatDailyDetailComponent.onCopy()');
+
+    const item = {...{}, ...value, ...{id: null}};
+    const data: PopUpData<Meal> = {
+      item,
+      props: {title: 'Copy Meal', route: 'eat/daily-detail/:data'}
+    };
+
+    this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
+      path: ['eat/daily-detail/:data', {outlets: {popUp: ['edit']}}],
+      data
+    }));
+
+  }
+
+  onDelete(item): void {
+
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        this.store$.dispatch(EatStoreActions.DeleteRequest({item}));
+      }
+    });
+
+  }
 
   }

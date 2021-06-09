@@ -4,6 +4,9 @@ import {adapter, State} from './state';
 import {Names} from './names';
 import {RouterStoreSelectors} from "@root-store/router-store/index";
 import {getBaseDate} from "@core/utils/date-utils";
+import {Eat} from "@models/vo/eat";
+
+import * as dayjs from 'dayjs'
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
@@ -33,12 +36,12 @@ export const selectEatDaily = createSelector(
     const result = values.findIndex(value => {
       const dateA =  value.date
       const dateB =  date.split('-').join('/')
-      console.log('dateB', dateB)
-      console.log('dateA', dateA)
+/*      console.log('dateB', dateB)
+      console.log('dateA', dateA)*/
       return dateA === dateB
     })
     if(result === -1){
-      return {date, meals:[]}
+      return {date, meals:[]} as Eat
     }
     return values[result]
   }

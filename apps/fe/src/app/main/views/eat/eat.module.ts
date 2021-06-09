@@ -22,6 +22,7 @@ import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
 import {TooltipModule} from "primeng/tooltip";
 import {EatDailyDetailComponent} from './eat-daily-detail/eat-daily-detail.component';
 import {NavigationBarComponent} from "@views/eat/components/navigationBar";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {NavigationBarComponent} from "@views/eat/components/navigationBar";
     NgLetModule,
     ToolbarModule,
     ChartModule,
-    TooltipModule
+    TooltipModule,
+    RippleModule
   ],
   providers: [],
   exports: [],

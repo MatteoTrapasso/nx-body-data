@@ -65,6 +65,7 @@
 - [ x ] nascondere gender, bDate e name?
 - [ x ] rendere tabella user e home per mobile
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
+- [ x ] format date
 - [   ] nuova pagina eat-detail
 - [   ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
 - [   ] click su grafico apre giorno selezionato
@@ -73,4 +74,6 @@
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] be food (manca inserire i campi corretti)
 - [   ] lista food
+  ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
+
 - [   ] profilo amministratore per monitorare utenti

@@ -3,6 +3,7 @@ import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {EatStoreActions} from "@root-store/eat-store/index";
 import {Eat} from "@models/vo/eat";
+import {getBaseDate} from "@core/utils/date-utils";
 
 
 @Component({
@@ -31,7 +32,7 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
 
     this._id = this.fb.control(this._id, Validators.required);
     this.kcal = this.fb.control('', Validators.required);
-    this.date = this.fb.control({value: date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear(), disabled: true});
+    this.date = this.fb.control({value: getBaseDate(date), disabled: true});
 
     this.form = this.fb.group({ // form
       _id: this._id, // attributo
