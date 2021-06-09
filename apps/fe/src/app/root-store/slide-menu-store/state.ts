@@ -69,6 +69,24 @@ export const initialState: State = {
       }
     },
     {
+      label: 'EatDaily',
+      icon: 'pi pi-fw pi-calendar',
+      // @ts-ignore
+      roles: ['roleA'],
+      command: (event$) => {
+        // invoco il router per cambiare pagina
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat/daily-detail']}));
+
+        // salvo nello store del menù l'elemento selezionato.
+        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
+          item: {
+            data: {},
+            breadcrumb: ['Sezione ', 'lastData'] // breadcrumb
+          }
+        }));
+      }
+    },
+    {
       label: 'User',
       icon: 'pi pi-fw pi-user',
       // @ts-ignore
@@ -82,60 +100,6 @@ export const initialState: State = {
           item: {
             data: {},
             breadcrumb: ['Sezione ', 'User'] // breadcrumb
-          }
-        }));
-      }
-    },
-    {
-      label: 'lastData',
-      icon: 'pi pi-fw pi-user',
-      // @ts-ignore
-      roles: ['roleA'],
-      command: (event$) => {
-        // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat/daily-detail/6-4-2021']}));
-
-        // salvo nello store del menù l'elemento selezionato.
-        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
-          item: {
-            data: {},
-            breadcrumb: ['Sezione ', 'lastData'] // breadcrumb
-          }
-        }));
-      }
-    },
-    {
-      label: 'lastData',
-      icon: 'pi pi-fw pi-user',
-      // @ts-ignore
-      roles: ['roleA'],
-      command: (event$) => {
-        // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat/daily-detail/6-3-2021']}));
-
-        // salvo nello store del menù l'elemento selezionato.
-        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
-          item: {
-            data: {},
-            breadcrumb: ['Sezione ', 'lastData'] // breadcrumb
-          }
-        }));
-      }
-    },
-    {
-      label: 'Eat2',
-      icon: 'pi pi-fw pi-user',
-      // @ts-ignore
-      roles: ['roleA'],
-      command: (event$) => {
-        // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat/daily-detail']}));
-
-        // salvo nello store del menù l'elemento selezionato.
-        event$.item.store$.dispatch(SlideMenuStoreActions.Select({
-          item: {
-            data: {},
-            breadcrumb: ['Sezione ', 'lastData'] // breadcrumb
           }
         }));
       }
