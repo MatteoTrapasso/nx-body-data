@@ -66,10 +66,10 @@
 - [ x ] rendere tabella user e home per mobile
   ---------------------------------------------------VERSIONE 3.0------------------------------------------------------------------------
 - [ x ] format date
-- [   ] nuova pagina eat-detail
+- [ x ] nuova pagina eat-detail
+- [ x ] componente con pulsanti per navigare tra i giorni
 - [   ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
 - [   ] click su grafico apre giorno selezionato
-- [   ] componente con pulsanti per navigare tra i giorni
 - [   ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] be food (manca inserire i campi corretti)

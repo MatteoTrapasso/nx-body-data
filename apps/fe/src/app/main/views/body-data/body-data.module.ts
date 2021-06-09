@@ -21,18 +21,19 @@ import {ChartModule} from 'primeng/chart';
 import {TooltipModule} from 'primeng/tooltip';
 import {SelectButtonModule} from "primeng/selectbutton";
 import {EatModule} from "@views/eat/eat.module";
-import {MetabolicValueComponent} from "@views/eat/components/metabolic-value";
+import {MetabolicValueComponent} from "@views/body-data/components/metabolic-value";
 
 @NgModule({
-  declarations: [
-    BodyDataEditComponent,
-    BodyDataMainComponent,
-    BodyDataListComponent,
-    ButtonNewBodyDataComponent,
-    ButtonDeleteBodyDataComponent,
-    ButtonEditManyTestBodyDataComponent,
-    ButtonCreateManyTestBodyDataComponent
-  ],
+    declarations: [
+        BodyDataEditComponent,
+        BodyDataMainComponent,
+        BodyDataListComponent,
+        ButtonNewBodyDataComponent,
+        ButtonDeleteBodyDataComponent,
+        ButtonEditManyTestBodyDataComponent,
+        ButtonCreateManyTestBodyDataComponent,
+        MetabolicValueComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,

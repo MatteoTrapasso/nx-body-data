@@ -1,10 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {BodyDataStoreSelectors, EatStoreActions, EatStoreSelectors, RootStoreState} from '@root-store/index';
+import {BodyDataStoreSelectors, RootStoreState} from '@root-store/index';
 import {BodyData} from "@models/vo/body-data";
 import {map} from "rxjs/operators";
-import {DialogModule} from 'primeng/dialog';
 
 @Component({
   selector: 'app-metabolic-value-eat',
