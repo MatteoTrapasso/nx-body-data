@@ -22,6 +22,8 @@ import {TooltipModule} from "primeng/tooltip";
 import {EatDailyDetailComponent} from './eat-daily-detail/eat-daily-detail.component';
 import {NavigationBarComponent} from "@views/eat/components/navigationBar";
 import {RippleModule} from "primeng/ripple";
+import {DropdownModule} from "primeng/dropdown";
+import {AutoCompleteModule} from "primeng/autocomplete";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import {RippleModule} from "primeng/ripple";
     ButtonCreateManyTestEatComponent,
     ButtonCreateManyTestEatComponent,
     EatDailyDetailComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,9 @@ import {RippleModule} from "primeng/ripple";
     ToolbarModule,
     ChartModule,
     TooltipModule,
-    RippleModule
+    RippleModule,
+    DropdownModule,
+    AutoCompleteModule
   ],
   providers: [],
   exports: [],

@@ -68,7 +68,9 @@
 - [ x ] format date
 - [ x ] nuova pagina eat-detail
 - [ x ] componente con pulsanti per navigare tra i giorni
-- [   ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
+- [ x ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
+- [   ] ridimensionare componente meal in base alle percentuali
+- [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
 - [   ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere

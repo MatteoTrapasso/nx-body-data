@@ -12,8 +12,8 @@ export class FoodService {
     const createdCat = new this.FoodModel(CreateFoodDTO);
     return createdCat.save();
   }
-  async findAll(user): Promise<any> {
-    return await this.FoodModel.find({ user: user }).exec();
+  async findAll(): Promise<any> {
+    return await this.FoodModel.find().exec();
   }
   async findById(id): Promise<Food> {
     const customer = await this.FoodModel.findById(id).exec();

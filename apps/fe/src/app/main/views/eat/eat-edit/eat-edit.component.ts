@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Form, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EatStoreActions} from "@root-store/eat-store/index";
 import {Eat} from "@models/vo/eat";
 import {getBaseDate} from "@core/utils/date-utils";
@@ -9,7 +9,7 @@ import {getBaseDate} from "@core/utils/date-utils";
 @Component({
   selector: 'app-eat-edit',
   templateUrl: './eat-edit.component.html',
-  styles: [``]
+  styleUrls: [`./eat-edit.component.scss`]
 })
 export class EatEditComponent extends PopUpBaseComponent<Eat> {
 
@@ -19,6 +19,16 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
   kcal: FormControl; // attributo
   date: FormControl; // attributo
   user: FormControl; // attributo
+  type: FormControl;
+  selectedType: any = null;
+
+  types: any[] = [
+    {name: 'colazione', value: 'colazione'},
+    {name: 'pranzo', value: 'pranzo'},
+    {name: 'cena', value: 'cena'},
+    {name: 'spuntino', value: 'spuntino'}
+  ];
+
 
   setItemPerform(value: Eat): void {
     this.makeFrom();
@@ -31,13 +41,15 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
 
 
     this._id = this.fb.control(this._id, Validators.required);
-    this.kcal = this.fb.control('', Validators.required);
+   // this.kcal = this.fb.control('', Validators.required);
     this.date = this.fb.control({value: getBaseDate(date), disabled: true});
+    this.type = this.fb.control('', Validators.required);
 
     this.form = this.fb.group({ // form
       _id: this._id, // attributo
       kcal: this.kcal, // attributo
       date: this.date, // attributo
+      type: this.type, // attributo
     });
   }
 

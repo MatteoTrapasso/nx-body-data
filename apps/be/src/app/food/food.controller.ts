@@ -32,8 +32,7 @@ export class FoodController {
 
   @Get()
   async findAll(@Res() res, @Req() req) {
-    const user = req.user.sub;
-    const data = await this.service.findAll(user);
+    const data = await this.service.findAll();
     return res.status(HttpStatus.OK).json(data);
   }
 

@@ -5,6 +5,7 @@ import {RouterStoreActions} from '@root-store/router-store/index';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 import {BodyData} from '@models/vo/body-data';
 import {BodyDataStoreSelectors, RootStoreState} from '@root-store/index';
+import {getBaseDate} from "@core/utils/date-utils";
 
 @Component({
   selector: 'app-button-new-body-data',
@@ -36,7 +37,7 @@ export class ButtonNewBodyDataComponent implements OnInit {
   onCreate(itemA) {
     const item = {...itemA, _id:undefined};
     const dateA = new Date();
-    item.date = dateA.getMonth() + 1 + '/' + dateA.getDate() + '/' + dateA.getFullYear();
+    item.date = getBaseDate(dateA);
     const data: PopUpData<BodyData> = {
       item,
       props: {title: 'New BodyData', route: 'body-data'}
