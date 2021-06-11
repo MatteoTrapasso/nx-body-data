@@ -24,6 +24,10 @@ import {NavigationBarComponent} from "@views/eat/components/navigationBar";
 import {RippleModule} from "primeng/ripple";
 import {DropdownModule} from "primeng/dropdown";
 import {AutoCompleteModule} from "primeng/autocomplete";
+import {MultiSelectModule} from "primeng/multiselect";
+import {SelectedFoodListComponent} from "@views/eat/selected-food-list/selected-food-list.component";
+import {InputNumberModule} from "primeng/inputnumber";
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     ButtonCreateManyTestEatComponent,
     EatDailyDetailComponent,
     NavigationBarComponent,
+    SelectedFoodListComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +60,10 @@ import {AutoCompleteModule} from "primeng/autocomplete";
     TooltipModule,
     RippleModule,
     DropdownModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    MultiSelectModule,
+    InputNumberModule,
+    CalendarModule
   ],
   providers: [],
   exports: [],

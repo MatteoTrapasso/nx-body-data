@@ -4,7 +4,7 @@ import {select, Store} from "@ngrx/store";
 import {
   BodyDataStoreActions,
   BodyDataStoreSelectors, EatStoreActions,
-  EatStoreSelectors,
+  EatStoreSelectors, FoodStoreActions,
   RootStoreSelectors,
   RouterStoreActions,
   RouterStoreSelectors
@@ -40,7 +40,7 @@ export class EatDailyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.store$.dispatch(FoodStoreActions.SearchRequest({queryParams: {}}));
       this.eats$ = this.store$.select(
         EatStoreSelectors.selectAll
       ).pipe(map((values: Eat[]) => {
@@ -60,14 +60,14 @@ export class EatDailyDetailComponent implements OnInit {
                 hidden: false,
                 data: [],
                 fill: false,
-                borderColor: '#f5ce42',
+                borderColor: '#FBC02D',
               },
               {
                 label: 'proteins',
                 hidden: false,
                 data: [],
                 fill: false,
-                borderColor: '#F5425DFF',
+                borderColor: '#D32F2F',
               },
               {
                 label: '\n' +
@@ -75,7 +75,7 @@ export class EatDailyDetailComponent implements OnInit {
                 hidden: false,
                 data: [],
                 fill: false,
-                borderColor: '#69f542',
+                borderColor: '#689F38',
               },
             ]
           };

@@ -11,25 +11,45 @@
 
   <div class="p-grid">
     <div class="p-col">
+
+      <p-chart type="doughnut" [data]="data"></p-chart>
+
+
       <form
         class="dynamic-form"
         [formGroup]="form">
 
-<!--        <div class="p-grid">
-          <div class="p-col">
-            <label for="kcal"><strong>kcal</strong></label><br>
-            <input id="kcal" name="kcal" type="number" class="form-control" pInputText [formControl]="kcal"/>
-          </div>
-        </div>-->
 
         <div class="p-grid">
-          <div class="p-field p-col-12 p-md-3">
+          <div class="p-col">
             <label><strong>type</strong></label><br>
-            <p-dropdown inputId="type" [options]="types" [(ngModel)]="selectedType" placeholder="Select"
+            <p-dropdown inputId="type" [options]="types" placeholder="Select"
                         optionLabel="name" [formControl]="type"></p-dropdown>
           </div>
         </div>
 
+        <div class="p-grid" style="width: 15%;!important;">
+          <div class="p-col">
+            <label><strong>time</strong></label><br>
+            <p-calendar [timeOnly]="true" inputId="timeonly" [formControl]="time"></p-calendar>
+          </div>
+        </div>
+
+        <div class="p-grid">
+          <div class="p-col">
+            <label><strong>Food</strong></label><br>
+            <p-autoComplete [suggestions]="options"
+                            (completeMethod)="filterMethod($event)" field="name"
+                            [dropdown]="true"
+                            [formControl]="food">
+              <ng-template let-item pTemplate="item">
+                <div class="food-item">
+                  <div>{{item.Food_Name_ITA}}</div>
+                </div>
+              </ng-template>
+            </p-autoComplete>
+          </div>
+        </div>
 
         <div class="p-grid" style="display: none;">
           <div class="p-col">
@@ -37,16 +57,18 @@
             <input id="date" name="date" class="form-control" pInputText [formControl]="date"/>
           </div>
         </div>
-
+        <div style="width: 100%; text-align: right; padding: 10px">
+          <button type="button" pButton icon="pi pi-plus"
+                  label="Add Food"
+                  class="p-button-success p-ml-auto"></button>
+        </div>
       </form>
-    </div>
-    <!--    <div class="p-col">
-          <pre>
-    {{form | jsonForm | json}}
-    </pre>
-        </div>-->
-  </div>
 
+      <!--lista selezionati-->
+      <app-selected-food-list></app-selected-food-list>
+
+    </div>
+  </div>
 
   <ng-template pTemplate="footer">
     <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
