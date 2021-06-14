@@ -40,7 +40,7 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
   totFat: number; //sum of (Total_fat/100) * gty selected foods
   totProtein: number;//sum of (Total_protein/100) * qty selected foods
   totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
-  totKcal: number;//sum of (Energy_recalculated/100) * qty selected foods
+  totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods
 
 
   setItemPerform(value: Eat): void {
