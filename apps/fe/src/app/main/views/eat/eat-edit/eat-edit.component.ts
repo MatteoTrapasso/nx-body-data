@@ -7,7 +7,6 @@ import {getBaseDate} from "@core/utils/date-utils";
 import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
-import {tap} from "rxjs/operators";
 
 
 @Component({
@@ -38,6 +37,10 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
   options: any;
   selectedFoodsList: Food[] = [];
   valueQty: any = 1;
+  totFat: number; //sum of (Total_fat/100) * gty selected foods
+  totProtein: number;//sum of (Total_protein/100) * qty selected foods
+  totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
+  totKcal: number;//sum of (Energy_recalculated/100) * qty selected foods
 
 
   setItemPerform(value: Eat): void {
@@ -119,9 +122,11 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
       });
   }
 
-  addList(rawValue: any) {
-    console.log('element', rawValue.food)
+  addList(rawValue) {
     this.selectedFoodsList.push(rawValue.food)
   }
 
+  onDeleteListItem(item): void {
+
+  }
 }

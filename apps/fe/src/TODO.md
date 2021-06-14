@@ -74,7 +74,8 @@
 - [ x ] be meal (food, qty)
 - [ x ] be food (manca inserire i campi corretti)
 - [ x ] allineare addFood button e select food
-- [   ] addList elementi selezionati
+- [ x ] addList elementi selezionati
+- [   ] delete element selected foods
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
