@@ -12,6 +12,7 @@ import { AuthStoreModule } from '@root-store/auth-store';
 import {EatStoreModule} from "@root-store/eat-store";
 import {UserStoreModule} from "@root-store/user-store/user-store.module";
 import {FoodStoreModule} from "@root-store/food-store";
+import {MealStoreModule} from "@root-store/meal-store";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {FoodStoreModule} from "@root-store/food-store";
     }),
     EatStoreModule,
     FoodStoreModule,
+    MealStoreModule,
     UserStoreModule,
     BodyDataStoreModule,
     AuthStoreModule,
