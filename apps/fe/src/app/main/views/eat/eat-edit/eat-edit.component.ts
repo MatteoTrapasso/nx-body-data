@@ -7,6 +7,7 @@ import {getBaseDate} from "@core/utils/date-utils";
 import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
+import {tap} from "rxjs/operators";
 
 
 @Component({
@@ -35,6 +36,7 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
     {name: 'spuntino', value: 'spuntino'}
   ];
   options: any;
+  private selectedFoodsList$: Observable<Food[]>;
 
 
   setItemPerform(value: Eat): void {
@@ -116,4 +118,11 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
       });
   }
 
+  addList(rawValue: any) {
+    console.log('element', rawValue.food)
+    this.selectedFoodsList$.pipe(tap(list => {
+     list.push(rawValue.food);
+
+    }));
+  }
 }

@@ -71,12 +71,14 @@
 - [ x ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
 - [ x ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
 - [ x ] lista food
+- [ x ] be meal (food, qty)
+- [ x ] be food (manca inserire i campi corretti)
+- [ x ] allineare addFood button e select food
+- [   ] addList elementi selezionati
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
-- [   ] be food (manca inserire i campi corretti)
-- [   ] be meal (food, qty)
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 
 - [   ] profilo amministratore per monitorare utenti

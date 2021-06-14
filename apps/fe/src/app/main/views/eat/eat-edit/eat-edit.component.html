@@ -19,51 +19,51 @@
         class="dynamic-form"
         [formGroup]="form">
 
+        <div class="card" style="margin-top: 10px">
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-6">
+              <label><strong>type</strong></label><br>
+              <p-dropdown inputId="type" [options]="types" placeholder="Select"
+                          optionLabel="name" [formControl]="type"></p-dropdown>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+              <label><strong>time</strong></label><br>
+              <p-calendar [timeOnly]="true" inputId="timeonly" [formControl]="time"></p-calendar>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+              <label><strong>Food</strong></label><br>
+              <p-autoComplete [suggestions]="options"
+                              (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
+                              [dropdown]="true"
+                              [formControl]="food">
+                <ng-template let-item pTemplate="item">
+                  <div class="food-item">
+                    <div>{{item.Food_Name_ITA}}</div>
+                  </div>
+                </ng-template>
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="font-size:18px">>{{item.Food_Name_ITA}}<</span>
+                </ng-template>
+              </p-autoComplete>
+            </div>
+            <div class="p-field p-col-12 p-md-3">
+              <label><strong> add </strong></label><br>
+              <button type="button" pButton icon="pi pi-plus"
+                      label="Add Food"
+                      class="p-button-success p-ml-auto"
+                      (click)="addList(form.getRawValue())"></button>
+            </div>
 
-        <div class="p-grid">
-          <div class="p-col">
-            <label><strong>type</strong></label><br>
-            <p-dropdown inputId="type" [options]="types" placeholder="Select"
-                        optionLabel="name" [formControl]="type"></p-dropdown>
+            <div class="p-grid" style="display: none;">
+              <div class="p-col">
+                <label for="date"><strong>date</strong></label><br>
+                <input id="date" name="date" class="form-control" pInputText [formControl]="date"/>
+              </div>
+            </div>
           </div>
         </div>
+        <pre>{{selectedFoodsList$|async|json}}</pre>
 
-        <div class="p-grid" style="width: 15%;!important;">
-          <div class="p-col">
-            <label><strong>time</strong></label><br>
-            <p-calendar [timeOnly]="true" inputId="timeonly" [formControl]="time"></p-calendar>
-          </div>
-        </div>
-        <div class="p-grid">
-          <div class="p-col">
-            <label><strong>Food</strong></label><br>
-            <p-autoComplete [suggestions]="options"
-                            (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
-                            [dropdown]="true"
-                            [formControl]="food">
-              <ng-template let-item pTemplate="item">
-                <div class="food-item">
-                  <div>{{item.Food_Name_ITA}}</div>
-                </div>
-              </ng-template>
-              <ng-template let-item pTemplate="selectedItem">
-                <span style="font-size:18px">>{{item.Food_Name_ITA}}<</span>
-              </ng-template>
-            </p-autoComplete>
-          </div>
-        </div>
-
-        <div class="p-grid" style="display: none;">
-          <div class="p-col">
-            <label for="date"><strong>date</strong></label><br>
-            <input id="date" name="date" class="form-control" pInputText [formControl]="date"/>
-          </div>
-        </div>
-        <div style="width: 100%; text-align: right; padding: 10px">
-          <button type="button" pButton icon="pi pi-plus"
-                  label="Add Food"
-                  class="p-button-success p-ml-auto"></button>
-        </div>
       </form>
 
       <!--lista selezionati-->
