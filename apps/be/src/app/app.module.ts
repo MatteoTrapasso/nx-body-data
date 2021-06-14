@@ -10,6 +10,7 @@ import {join} from "path";
 import {EatModule} from "./eat/eat.module";
 import {UserModule} from "./user/user.module";
 import {FoodModule} from "./food/food.module";
+import {MealModule} from "./meal/meal.module";
 
 console.log('__dirname', __dirname);
 @Module({
@@ -24,6 +25,7 @@ console.log('__dirname', __dirname);
     EatModule,
     UserModule,
     FoodModule,
+    MealModule,
   ],
   controllers: [AppController],
   providers: [AppService],
@@ -36,7 +38,8 @@ export class AppModule {
             { path: 'body-data', method: RequestMethod.ALL },
             { path: 'eat', method: RequestMethod.ALL },
             { path: 'user', method: RequestMethod.ALL },
-            { path: 'food', method: RequestMethod.ALL }
+            { path: 'food', method: RequestMethod.ALL },
+            { path: 'meal', method: RequestMethod.ALL }
         );
   }
 }

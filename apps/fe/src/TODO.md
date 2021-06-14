@@ -69,13 +69,14 @@
 - [ x ] nuova pagina eat-detail
 - [ x ] componente con pulsanti per navigare tra i giorni
 - [ x ] componente meal (barra con diversi colori per le percentuali, pulsanti edit e delete)
+- [ x ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
+- [ x ] lista food
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
-- [   ] componente edit meal (grafico percentuali valori principali) + form inserimento piatti + qty
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] be food (manca inserire i campi corretti)
-- [   ] lista food
+- [   ] be meal (food, qty)
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 
 - [   ] profilo amministratore per monitorare utenti
