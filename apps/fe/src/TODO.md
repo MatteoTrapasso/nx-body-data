@@ -75,8 +75,10 @@
 - [ x ] be food (manca inserire i campi corretti)
 - [ x ] allineare addFood button e select food
 - [ x ] addList elementi selezionati
+- [ x ] delete eat
+- [ x ] delete element selected foods
+- [   ] save meal
 - [   ] grafico meal kcal
-- [   ] delete element selected foods
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato

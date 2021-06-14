@@ -62,27 +62,27 @@
             </div>
           </div>
         </div>
-
-        <!--lista selezionati-->
-
-        <table>
-          <tr *ngFor="let food of selectedFoodsList">
-            <td>
-              <pre>{{food.Food_Name_ITA}} (100g) </pre>
-            </td>
-            <td><pre><p-inputNumber mode="decimal" [showButtons]="true" inputId="{{food['_id']}}" [min]="0"
-                                    [max]="100" [size]="1" [step]="1">
-        </p-inputNumber></pre>
-            </td>
-            <td>
-              <button pButton pRipple type="button" icon="pi pi-times"
-                      class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
-                      tooltipPosition="top" (click)="onDeleteListItem(food)"></button>
-            </td>
-          </tr>
-        </table>
-
       </form>
+
+      <!--lista selezionati-->
+
+      <table>
+        <tr *ngFor="let food of selectedFoodsList">
+          <td>
+            <pre>{{food.Food_Name_ITA}} (100g) </pre>
+          </td>
+          <td><pre><p-inputNumber mode="decimal" [showButtons]="true" inputId="{{food['_id']}}" [min]="0"
+                                  [max]="100" [size]="1" [step]="1">
+        </p-inputNumber></pre>
+          </td>
+          <td>
+            <button pButton pRipple type="button" icon="pi pi-times"
+                    class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
+                    tooltipPosition="top" (click)="onDeleteListItem(food)"></button>
+          </td>
+        </tr>
+      </table>
+
 
     </div>
   </div>
