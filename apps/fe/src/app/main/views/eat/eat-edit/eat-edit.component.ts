@@ -34,7 +34,7 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
     {name: 'cena', value: 'cena'},
     {name: 'spuntino', value: 'spuntino'}
   ];
-  private options: any;
+  options: any;
 
 
   setItemPerform(value: Eat): void {

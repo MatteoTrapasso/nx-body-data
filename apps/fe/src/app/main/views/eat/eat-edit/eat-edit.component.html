@@ -34,18 +34,20 @@
             <p-calendar [timeOnly]="true" inputId="timeonly" [formControl]="time"></p-calendar>
           </div>
         </div>
-
         <div class="p-grid">
           <div class="p-col">
             <label><strong>Food</strong></label><br>
             <p-autoComplete [suggestions]="options"
-                            (completeMethod)="filterMethod($event)" field="name"
+                            (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
                             [dropdown]="true"
                             [formControl]="food">
               <ng-template let-item pTemplate="item">
                 <div class="food-item">
                   <div>{{item.Food_Name_ITA}}</div>
                 </div>
+              </ng-template>
+              <ng-template let-item pTemplate="selectedItem">
+                <span style="font-size:18px">>{{item.Food_Name_ITA}}<</span>
               </ng-template>
             </p-autoComplete>
           </div>
