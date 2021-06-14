@@ -6,7 +6,7 @@ import {AuthenticationService} from './authentication.service';
 import {combineLatest, of} from 'rxjs';
 import {RouterGo} from '@root-store/router-store/actions';
 import {afterLogoutUri} from './conf';
-import {EatStoreActions} from "@root-store/eat-store/index";
+import {MealStoreActions} from "@root-store/meal-store/index";
 
 @Injectable()
 export class AuthStoreEffects {
@@ -61,7 +61,7 @@ export class AuthStoreEffects {
     () =>
       this.actions$.pipe(
         ofType(actions.LoginResult),
-        switchMap(() => [ EatStoreActions.SearchRequest({queryParams: {}})])
+        switchMap(() => [ MealStoreActions.SearchRequest({queryParams: {}})])
       ),
   );
 

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Eat} from "@models/vo/eat";
 import {UserStoreActions} from "@root-store/user-store/index";
 import {User} from "@models/vo/user";
 

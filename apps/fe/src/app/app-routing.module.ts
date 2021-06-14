@@ -12,9 +12,9 @@ const routes: Routes = [
     loadChildren: () => import('./main/views/body-data/body-data.module').then(m => m.BodyDataModule)
   },
   {
-    path: 'eat',
+    path: 'meal',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./main/views/eat/eat.module').then(m => m.EatModule)
+    loadChildren: () => import('./main/views/meal/meal.module').then(m => m.MealModule)
   },
   {
     path: 'user',

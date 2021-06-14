@@ -3,14 +3,14 @@ import {environment} from '../../../environments/environment';
 import {BaseCrudService, ICriteria, OptRequest, Response} from 'ngrx-entity-crud';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {User} from "@models/vo/user";
+import {MealDaily} from "@models/vo/meal-daily";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseCrudService<User> {
-  public service = environment.webServiceUri + 'user';
-  public getId = User.selectId;
+export class MealDailyService extends BaseCrudService<MealDaily> {
+  public service = environment.webServiceUri + 'meal-daily';
+  public getId = MealDaily.selectId;
 
   /*
     constructor(http: HttpClient) {
@@ -27,7 +27,7 @@ export class UserService extends BaseCrudService<User> {
         })
       ) as any;
     }*/
-  search(value?: ICriteria): Observable<Response<User[]>> {
+  search(value?: ICriteria): Observable<Response<MealDaily[]>> {
     console.log('value: ', value);
     return super.search(value).pipe(
       map(data => {
@@ -38,7 +38,7 @@ export class UserService extends BaseCrudService<User> {
     ) as any;
   }
 
-  update(opt: OptRequest<User>): Observable<Response<User>> {
+  update(opt: OptRequest<MealDaily>): Observable<Response<MealDaily>> {
     console.log('update: ');
     return super.update(opt);
   }

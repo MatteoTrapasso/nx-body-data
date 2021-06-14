@@ -8,7 +8,6 @@ export * from './router-store';
 export * from './slide-menu-store';
 export * from './body-data-store';
 export * from './auth-store';
-export * from './eat-store';
 export * from './user-store';
 export * from './food-store';
 export * from './meal-store';

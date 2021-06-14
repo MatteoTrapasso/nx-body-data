@@ -6,7 +6,7 @@ import {BodyData} from "@models/vo/body-data";
 import {map} from "rxjs/operators";
 
 @Component({
-  selector: 'app-metabolic-value-eat',
+  selector: 'app-metabolic-value',
   template: `
     <div class="p-grid p-dir-col" style="padding-top: 10px">
       <div class="p-col">

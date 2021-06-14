@@ -4,7 +4,7 @@ import {adapter, State} from './state';
 import {Names} from './names';
 import {RouterStoreSelectors} from "@root-store/router-store/index";
 import {getBaseDate} from "@core/utils/date-utils";
-import {Eat} from "@models/vo/eat";
+import {Meal} from "@models/vo/meal";
 
 export const selectState: MemoizedSelector<object, State> = createFeatureSelector<State>(Names.NAME);
 export const {
@@ -25,7 +25,7 @@ export const {
   selectResponses,
 } = adapter.getCrudSelectors(selectState);
 
-export const selectEatDaily = createSelector(
+export const selectMealDaily = createSelector(
   RouterStoreSelectors.selectRouteParams,
   selectAll,
   (params, values) => {
@@ -39,7 +39,7 @@ export const selectEatDaily = createSelector(
       return dateA === dateB
     })
     if(result === -1){
-      return {date, meals:[]} as Eat
+      return {date} as Meal
     }
     return values[result]
   }

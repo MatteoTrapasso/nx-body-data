@@ -20,8 +20,8 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from 'primeng/chart';
 import {TooltipModule} from 'primeng/tooltip';
 import {SelectButtonModule} from "primeng/selectbutton";
-import {EatModule} from "@views/eat/eat.module";
 import {MetabolicValueComponent} from "@views/body-data/components/metabolic-value";
+import {MealModule} from "@views/meal/meal.module";
 
 @NgModule({
     declarations: [
@@ -50,7 +50,7 @@ import {MetabolicValueComponent} from "@views/body-data/components/metabolic-val
         ChartModule,
         TooltipModule,
         SelectButtonModule,
-        EatModule
+        MealModule
     ],
   providers: [],
   entryComponents: []

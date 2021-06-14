@@ -50,32 +50,32 @@ export const initialState: State = {
         }));
       }
     },
-    {
-      label: 'Eat',
+   /* {
+      label: 'Meal',
       icon: 'pi pi-fw pi-calendar',
       // @ts-ignore
       roles: ['roleA'],
       command: (event$) => {
         // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat']}));
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['meal']}));
 
         // salvo nello store del menù l'elemento selezionato.
         event$.item.store$.dispatch(SlideMenuStoreActions.Select({
           item: {
             data: {},
-            breadcrumb: ['Sezione ', 'Eat'] // breadcrumb
+            breadcrumb: ['Sezione ', 'Meal'] // breadcrumb
           }
         }));
       }
-    },
+    },*/
     {
-      label: 'EatDaily',
+      label: 'MealDaily',
       icon: 'pi pi-fw pi-calendar',
       // @ts-ignore
       roles: ['roleA'],
       command: (event$) => {
         // invoco il router per cambiare pagina
-        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['eat/daily-detail']}));
+        event$.item.store$.dispatch(RouterStoreActions.RouterGo({path: ['meal/daily-detail']}));
 
         // salvo nello store del menù l'elemento selezionato.
         event$.item.store$.dispatch(SlideMenuStoreActions.Select({
