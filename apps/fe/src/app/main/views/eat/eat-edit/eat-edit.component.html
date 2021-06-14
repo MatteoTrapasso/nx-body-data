@@ -62,12 +62,22 @@
             </div>
           </div>
         </div>
-        <pre>{{selectedFoodsList$|async|json}}</pre>
+        <table>
+          <tr *ngFor="let food of selectedFoodsList">
+            <td><pre>{{food.Food_Name_ITA}}</pre></td>
+            <td><pre><p-inputNumber [(ngModel)]="valueQty" mode="decimal" [showButtons]="true" inputId="{{food['_id']}}" [min]="0"
+                                    [max]="100" [size]="1" [step]="0.1">
+        </p-inputNumber></pre></td>
+            <td>        <button pButton pRipple type="button" icon="pi pi-times"
+                                class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
+                                tooltipPosition="top"></button></td>
+          </tr>
+        </table>
 
       </form>
 
       <!--lista selezionati-->
-      <app-selected-food-list></app-selected-food-list>
+      <!--<app-selected-food-list></app-selected-food-list>-->
 
     </div>
   </div>

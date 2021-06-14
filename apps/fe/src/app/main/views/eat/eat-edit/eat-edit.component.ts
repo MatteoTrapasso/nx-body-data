@@ -36,7 +36,8 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
     {name: 'spuntino', value: 'spuntino'}
   ];
   options: any;
-  private selectedFoodsList$: Observable<Food[]>;
+  selectedFoodsList: Food[] = [];
+  valueQty: any = 1;
 
 
   setItemPerform(value: Eat): void {
@@ -120,9 +121,7 @@ export class EatEditComponent extends PopUpBaseComponent<Eat> {
 
   addList(rawValue: any) {
     console.log('element', rawValue.food)
-    this.selectedFoodsList$.pipe(tap(list => {
-     list.push(rawValue.food);
-
-    }));
+    this.selectedFoodsList.push(rawValue.food)
   }
+
 }
