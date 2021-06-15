@@ -1,15 +1,12 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MealStoreActions} from "@root-store/meal-store/index";
 import {Meal} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
-import {from, observable, Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
-import {map, reduce} from "rxjs/operators";
-import {BodyData} from "@models/vo/body-data";
-import {metabolic} from "@views/body-data/components/metabolic-value";
 
 
 @Component({
@@ -25,25 +22,19 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   date: FormControl; // attributo
   user: FormControl; // attributo
   type: FormControl;
-  food: FormControl;
   time: FormControl;
+  qty: FormControl;
+  name: FormControl;
   data: any;
   foods$: Observable<Food[]>;
   selectedType: any;
-  types: any[] = [
-    {name: 'colazione', value: 'colazione'},
-    {name: 'pranzo', value: 'pranzo'},
-    {name: 'cena', value: 'cena'},
-    {name: 'spuntino', value: 'spuntino'}
-  ];
+  types: string[] = ["colazione", "pranzo", "cena", "spuntino"];
   options: any;
-  selectedFoodsList: Food[] = [];
-  totFat$: Observable<any>; //sum of (Total_fat/100) * gty selected foods
-  totProtein: number;//sum of (Total_protein/100) * qty selected foods
-  totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
-  totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods
-  selectedFoods$ = of(this.selectedFoodsList);
 
+  /* totFat$: Observable<any>; //sum of (Total_fat/100) * gty selected foods
+   totProtein: number;//sum of (Total_protein/100) * qty selected foods
+   totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
+   totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/
 
 
   setItemPerform(value: Meal): void {
@@ -62,7 +53,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       labels: ['Protein', 'Carbohydrates', 'Fat'],
       datasets: [
         {
-          data: [1,1,1],
+          data: [1, 1, 1],
           backgroundColor: [
             "#D32F2F",
             "#689F38",
@@ -82,17 +73,20 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this._id = this.fb.control(this._id, Validators.required);
     this.date = this.fb.control({value: getBaseDate(date), disabled: true});
     this.type = this.fb.control('', Validators.required);
-    this.food = this.fb.control('', Validators.required);
     this.time = this.fb.control('', Validators.required);
 
     this.form = this.fb.group({ // form
       _id: this._id, // attributo
       date: this.date, // attributo
       type: this.type, // attributo
-      food: this.food, // attributo
       time: this.time, // attributo
+      foods: this.fb.array([
+        this.qty = this.fb.control('', Validators.required),
+        this.name = this.fb.control('', Validators.required)
+      ])
     });
   }
+
 
   acceptPerform(item: Meal): void {
     if (item._id) {
@@ -125,13 +119,21 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       });
   }
 
-  addList(rawValue) {
-    this.selectedFoodsList.push(rawValue.food)
+  addFood() {
+    const foodForm = this.fb.group({
+      name: ['', Validators.required],
+      qty: ['0', Validators.required]
+    });
 
+    this.foods.push(foodForm);
   }
 
-  onDeleteListItem(item): void {
+  get foods() {
+    return this.form.controls["foods"] as FormArray;
+  }
 
+  deleteFood(foodIndex: number) {
+    this.foods.removeAt(foodIndex);
   }
 }
 
