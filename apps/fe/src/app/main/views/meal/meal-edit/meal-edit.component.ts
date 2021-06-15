@@ -4,9 +4,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MealStoreActions} from "@root-store/meal-store/index";
 import {Meal} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
-import {Observable} from "rxjs";
+import {from, observable, Observable, of} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
+import {map, reduce} from "rxjs/operators";
+import {BodyData} from "@models/vo/body-data";
+import {metabolic} from "@views/body-data/components/metabolic-value";
 
 
 @Component({
@@ -26,7 +29,6 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   time: FormControl;
   data: any;
   foods$: Observable<Food[]>;
-  selectedFoods: Food[];
   selectedType: any;
   types: any[] = [
     {name: 'colazione', value: 'colazione'},
@@ -36,10 +38,12 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   ];
   options: any;
   selectedFoodsList: Food[] = [];
-  totFat: number; //sum of (Total_fat/100) * gty selected foods
+  totFat$: Observable<any>; //sum of (Total_fat/100) * gty selected foods
   totProtein: number;//sum of (Total_protein/100) * qty selected foods
   totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
   totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods
+  selectedFoods$ = of(this.selectedFoodsList);
+
 
 
   setItemPerform(value: Meal): void {
@@ -58,7 +62,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       labels: ['Protein', 'Carbohydrates', 'Fat'],
       datasets: [
         {
-          data: [300, 50, 100],
+          data: [1,1,1],
           backgroundColor: [
             "#D32F2F",
             "#689F38",
@@ -123,9 +127,11 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
 
   addList(rawValue) {
     this.selectedFoodsList.push(rawValue.food)
+
   }
 
   onDeleteListItem(item): void {
 
   }
 }
+

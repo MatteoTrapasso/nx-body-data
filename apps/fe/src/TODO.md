@@ -77,13 +77,14 @@
 - [ x ] addList elementi selezionati
 - [ x ] delete eat
 - [ x ] delete element selected foods
-- [   ] fix meal view for mobile
+- [ x ] fix meal view for mobile
 - [   ] save meal
-- [   ] grafico meal kcal
+- [   ] delete from select food list
+- [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
+- [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
-- [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 
 - [   ] profilo amministratore per monitorare utenti
