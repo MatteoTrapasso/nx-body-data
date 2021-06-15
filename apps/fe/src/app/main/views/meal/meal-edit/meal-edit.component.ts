@@ -23,8 +23,6 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   user: FormControl; // attributo
   type: FormControl;
   time: FormControl;
-  qty: FormControl;
-  name: FormControl;
   foods$: Observable<Food[]>;
   types: string[] = ["colazione", "pranzo", "cena", "spuntino"];
   data: any;
@@ -80,10 +78,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       date: this.date, // attributo
       type: this.type, // attributo
       time: this.time, // attributo
-      foods: this.fb.array([
-        this.qty = this.fb.control('', Validators.required),
-        this.name = this.fb.control('', Validators.required)
-      ])
+      foods: this.fb.array([])
     });
   }
 
@@ -114,14 +109,13 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this.foods$
       .subscribe(res => {
         const result = (<any>res).filter(option => option.Food_Name_ITA.includes((event.query).toUpperCase()));
-        console.log(result);
         this.options = result;
       });
   }
 
   addFood() {
     const foodForm = this.fb.group({
-      name: ['', Validators.required],
+      food: ['', Validators.required],
       qty: ['0', Validators.required]
     });
 

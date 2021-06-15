@@ -37,16 +37,16 @@
 
 
             <ng-container formArrayName="foods">
-              <ng-container *ngFor="let lessonForm of foods.controls; let i = index">
+              <ng-container *ngFor="let foodForm of foods.controls; let i = index">
 
 
-                <div class="p-d-flex">
-                  <div class="p-mr-2">
+                <div class="p-d-flex" [formGroup]="foodForm">
+                  <div class="p-mr-2" style="margin: 5%">
                     <label><strong>Food</strong></label><br>
                     <p-autoComplete [suggestions]="options"
                                     (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
                                     [dropdown]="true"
-                                    [formControl]="name">
+                                    formControlName="food">
                       <ng-template let-item pTemplate="item">
                         <div class="food-item">
                           <div>{{item.Food_Name_ITA}}</div>
@@ -57,14 +57,14 @@
                       </ng-template>
                     </p-autoComplete>
                   </div>
-                  <div class="p-mr-2">
+                  <div class="p-mr-2" style="margin: 5%">
                     <label><strong>qty</strong></label><br>
                     <p-inputNumber mode="decimal" [showButtons]="true" [min]="0"
                                    [max]="1000" [size]="1" [step]="25"
-                                   [formControl]="qty">
+                                   formControlName="qty">
                     </p-inputNumber>
                   </div>
-                  <div>
+                  <div style="margin: 5%">
                     <label><strong>delete</strong></label><br>
                     <button pButton pRipple type="button" icon="pi pi-times"
                             class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
@@ -76,21 +76,15 @@
 
               </ng-container>
             </ng-container>
-
-
-
-            <p-toolbar>
-
-              <label><strong> add </strong></label><br>
-              <button type="button" pButton icon="pi pi-plus"
-                      label="Add Food"
-                      class="p-button-success p-ml-auto"
-                      (click)="addFood()"></button>
-
-            </p-toolbar>
-
-
           </div>
+        </div>
+        <div style="margin: 2%">
+
+          <button type="button" pButton icon="pi pi-plus"
+                  label="Add Food"
+                  class="p-button-success p-ml-auto"
+                  (click)="addFood()"></button>
+
         </div>
       </form>
     </div>

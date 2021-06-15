@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import {Food} from "@models/vo/food";
 export class CreateMealDTO {
   @ApiProperty()
   readonly type: string;
@@ -8,8 +9,8 @@ export class CreateMealDTO {
 
   @ApiProperty()
   readonly foods: {
-    name: string
-    qty: string
+    food: Food
+    qty: number
   };
 
   @ApiProperty()
