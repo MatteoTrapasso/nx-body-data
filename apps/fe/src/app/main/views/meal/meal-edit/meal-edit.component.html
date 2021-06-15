@@ -7,9 +7,10 @@
           [minY]="70"
           [maximizable]="false"
           [closable]="false"
-          (onHide)="cancel()"><!--cancel width: '70em' in style-->
+          (onHide)="cancel()"
+          ><!--cancel width: '70em' in style-->
 
-  <div class="p-grid">
+  <div class="p-grid" style="overflow-x:auto">
     <div class="p-col">
 
       <p-chart type="doughnut" [data]="data"></p-chart>
@@ -66,19 +67,25 @@
 
       <!--lista selezionati-->
 
-      <table>
+      <table style="width: 100%; white-space: nowrap; table-layout: fixed;">
+        <tr>
+          <th>name</th>
+          <th>quantity (g)</th>
+          <th>delete</th>
+        </tr>
         <tr *ngFor="let food of selectedFoodsList">
-          <td>
-            <pre>{{food.Food_Name_ITA}} (100g) </pre>
+          <td style="overflow: hidden; text-overflow: ellipsis; margin: 2%">
+            <pre>{{food.Food_Name_ITA}}</pre>
           </td>
           <td><pre><p-inputNumber mode="decimal" [showButtons]="true" inputId="{{food['_id']}}" [min]="0"
-                                  [max]="100" [size]="1" [step]="1">
+                                  [max]="1000" [size]="1" [step]="25" style="margin: 2%">
         </p-inputNumber></pre>
           </td>
           <td>
             <button pButton pRipple type="button" icon="pi pi-times"
                     class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"
-                    tooltipPosition="top" (click)="onDeleteListItem(food)"></button>
+                    tooltipPosition="top" (click)="onDeleteListItem(food)"
+                    style="margin: 2%"></button>
           </td>
         </tr>
       </table>

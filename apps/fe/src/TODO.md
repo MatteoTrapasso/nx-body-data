@@ -77,6 +77,7 @@
 - [ x ] addList elementi selezionati
 - [ x ] delete eat
 - [ x ] delete element selected foods
+- [   ] fix meal view for mobile
 - [   ] save meal
 - [   ] grafico meal kcal
 - [   ] ridimensionare componente meal in base alle percentuali
