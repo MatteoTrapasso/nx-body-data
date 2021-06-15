@@ -25,13 +25,13 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   time: FormControl;
   qty: FormControl;
   name: FormControl;
-  data: any;
   foods$: Observable<Food[]>;
-  selectedType: any;
   types: string[] = ["colazione", "pranzo", "cena", "spuntino"];
+  data: any;
+  selectedType: any;
   options: any;
 
-  /* totFat$: Observable<any>; //sum of (Total_fat/100) * gty selected foods
+  /* totFat: number; //sum of (Total_fat/100) * gty selected foods
    totProtein: number;//sum of (Total_protein/100) * qty selected foods
    totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
    totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/

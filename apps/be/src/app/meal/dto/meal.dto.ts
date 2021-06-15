@@ -7,7 +7,10 @@ export class CreateMealDTO {
   readonly time: string;
 
   @ApiProperty()
-  readonly foods: any[];
+  readonly foods: {
+    name: string
+    qty: string
+  };
 
   @ApiProperty()
   readonly date: string;
