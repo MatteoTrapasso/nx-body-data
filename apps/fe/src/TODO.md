@@ -81,9 +81,11 @@
 - [ x ] ArrayForm for meal
 - [ x ] delete from select food list
 - [ x ] fix error overflow-x: auto
-- [ x ] Fix be for meal (foods = array of Food + qty)
+- [ x ] fix be for meal (foods = array of Food + qty)
 - [ x ] save meal
-- [   ] selector meal store , selezionare meal con quella data
+- [ x ] selector meal store , selezionare meal con quella data
+- [   ] fix modify, non carica dati meal
+- [   ] inserire in edit data della pagina corrente
 - [   ] disabilitare save se form non completo
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
