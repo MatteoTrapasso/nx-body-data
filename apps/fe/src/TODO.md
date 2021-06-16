@@ -78,8 +78,11 @@
 - [ x ] delete eat
 - [ x ] delete element selected foods
 - [ x ] fix meal view for mobile
+- [ x ] ArrayForm for meal
+- [ x ] delete from select food list
+- [   ] Fix be for meal (foods = array of Food + qty)
 - [   ] save meal
-- [   ] delete from select food list
+- [   ] disabilitare save se form non completo
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali

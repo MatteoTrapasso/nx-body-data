@@ -3,7 +3,7 @@
           [visible]="true"
           [modal]="true"
           [responsive]="true"
-          [style]="{minWidth: '300px', maxWidth:'600px'}"
+          [style]="{maxWidth:'650px'}"
           [minY]="70"
           [maximizable]="false"
           [closable]="false"
@@ -57,14 +57,14 @@
                       </ng-template>
                     </p-autoComplete>
                   </div>
-                  <div class="p-mr-2" style="margin: 5%">
-                    <label><strong>qty</strong></label><br>
+                  <div class="p-mr-2" style="margin-top: 5%">
+                    <label><strong>qty (g)</strong></label><br>
                     <p-inputNumber mode="decimal" [showButtons]="true" [min]="0"
-                                   [max]="1000" [size]="1" [step]="25"
+                                   [max]="1000" [size]="2" [step]="25"
                                    formControlName="qty">
                     </p-inputNumber>
                   </div>
-                  <div style="margin: 5%">
+                  <div style="margin-top: 5%">
                     <label><strong>delete</strong></label><br>
                     <button pButton pRipple type="button" icon="pi pi-times"
                             class="p-button-rounded p-button-danger p-button-outlined" pTooltip="delete"

@@ -5,10 +5,7 @@ const Schema = mongoose.Schema;
 export const MealSchema = new mongoose.Schema({
   type: String,
   time: String,
-  food: {
-    name:String,
-    qty:Number
-  },
+  food: String,
   date: String,
   user: String,
 }, { versionKey: false });

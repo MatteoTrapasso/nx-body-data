@@ -3,10 +3,7 @@ import {Food} from "@models/vo/food";
 export interface Meal extends Document {
   readonly type: string;
   readonly time: string;
-  readonly foods: {
-    name: string
-    qty: number
-  };
+  readonly foods: string;
   readonly date: string;
   readonly user: string;
 }
