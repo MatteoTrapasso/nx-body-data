@@ -7,6 +7,7 @@ import {RouterStoreActions} from '@root-store/router-store/index';
 import {filter, map, tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
+import {selectMealThisDay} from "@root-store/meal-store/selectors";
 
 @Component({
   selector: 'app-meal-list',
@@ -33,7 +34,7 @@ export class MealListComponent implements OnInit {
     );
 
     this.collection$ = this.store$.select(
-      MealStoreSelectors.selectMealDaily
+      MealStoreSelectors.selectMealThisDay
     )/*.pipe (
       map(items =>
         items.filter(item => item.date === MealStoreSelectors.selectMealDaily.toString())));*/

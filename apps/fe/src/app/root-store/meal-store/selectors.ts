@@ -44,3 +44,23 @@ export const selectMealDaily = createSelector(
     return values[result]
   }
 )
+
+export const selectMealThisDay = createSelector(
+  RouterStoreSelectors.selectRouteParams,
+  selectAll,
+  (params, values) => {
+    const date = params.date ? params.date : getBaseDate(new Date())
+    console.log('date', date)
+    const result = values.filter(value => {
+      const dateA =  value.date
+      const dateB =  date
+      /*      console.log('dateB', dateB)
+            console.log('dateA', dateA)*/
+      return dateA === dateB
+    })
+    if(!result){
+      return {date} as Meal
+    }
+    return result
+  }
+)
