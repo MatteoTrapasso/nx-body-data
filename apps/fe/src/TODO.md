@@ -80,6 +80,7 @@
 - [ x ] fix meal view for mobile
 - [ x ] ArrayForm for meal
 - [ x ] delete from select food list
+- [ x ] fix error overflow-x: auto
 - [   ] Fix be for meal (foods = array of Food + qty)
 - [   ] save meal
 - [   ] disabilitare save se form non completo
