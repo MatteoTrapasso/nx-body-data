@@ -31,7 +31,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
 
   /* totFat: number; //sum of (Total_fat/100) * gty selected foods
    totProtein: number;//sum of (Total_protein/100) * qty selected foods
-   totCarb: number;//sum of (Available_carbohydrates_(MSE)/100) * qty selected foods
+   totCarb: number;//sum of (Available_carbohydrates_MSE/100) * qty selected foods
    totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/
 
 

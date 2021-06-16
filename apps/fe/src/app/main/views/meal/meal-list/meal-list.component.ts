@@ -35,10 +35,7 @@ export class MealListComponent implements OnInit {
 
     this.collection$ = this.store$.select(
       MealStoreSelectors.selectMealThisDay
-    )/*.pipe (
-      map(items =>
-        items.filter(item => item.date === MealStoreSelectors.selectMealDaily.toString())));*/
-
+    )
 
 
   /*=== MealStoreSelectors.selectMealDaily*/

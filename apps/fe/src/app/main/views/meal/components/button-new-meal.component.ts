@@ -11,7 +11,7 @@ import {getBaseDate} from "@core/utils/date-utils";
   selector: 'app-button-new-meal',
   template: `
     <button type="button" pButton icon="pi pi-plus"
-            label="Add" (click)="onCreate()"
+            label="Add Meal" (click)="onCreate()"
             [disabled]="(disabled$ |async)"
             class="p-button-success"></button>
   `,

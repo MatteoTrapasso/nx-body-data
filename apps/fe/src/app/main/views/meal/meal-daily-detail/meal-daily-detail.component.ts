@@ -1,8 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import {FoodStoreActions, MealStoreActions, MealStoreSelectors, RouterStoreActions} from "@root-store/index";
-import {map} from "rxjs/operators";
+import {select, Store} from "@ngrx/store";
+import {
+  BodyDataStoreSelectors,
+  FoodStoreActions,
+  MealStoreActions,
+  MealStoreSelectors,
+  RouterStoreActions
+} from "@root-store/index";
+import {map, reduce, tap} from "rxjs/operators";
 import {Meal} from "@models/vo/meal";
 import {PopUpData} from "@root-store/router-store/pop-up-base.component";
 import {ConfirmationService} from "primeng/api";
@@ -16,7 +22,7 @@ export class MealDailyDetailComponent implements OnInit {
 
   meals$: Observable<any>
   mealOptions: any;
-  foods: [any]
+  foods: [any];
 
   constructor(private store$: Store,
   private confirmationService: ConfirmationService) {
