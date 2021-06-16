@@ -17,12 +17,6 @@ export class MealDailyDetailComponent implements OnInit {
   meals$: Observable<any>
   mealOptions: any;
   foods: [any]
-  meals=[
-    {foods: [{},{},{}], date: '18/06/2021', type: 'pranzo', user: 'user', _id: 'id'},
-    {foods: [{},{},{}], date: '18/06/2021', type: 'cena', user: 'user', _id: 'id'},
-    {foods: [{},{},{}], date: '18/06/2021', type: 'colazione', user: 'user', _id: 'id'},
-    {foods: [{},{},{}], date: '18/06/2021', type: 'pranzo', user: 'user', _id: 'id'}
-  ]
 
   constructor(private store$: Store,
   private confirmationService: ConfirmationService) {

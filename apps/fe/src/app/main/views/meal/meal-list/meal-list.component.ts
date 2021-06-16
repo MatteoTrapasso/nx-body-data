@@ -4,7 +4,7 @@ import {MealStoreActions, MealStoreSelectors, RootStoreState} from '@root-store/
 import {Observable} from 'rxjs';
 import {Meal} from '@models/vo/meal';
 import {RouterStoreActions} from '@root-store/router-store/index';
-import {tap} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 import {ConfirmationService} from 'primeng/api';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 
@@ -16,8 +16,7 @@ import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 })
 export class MealListComponent implements OnInit {
 
-
-  collection$: Observable<Meal[]>;
+  collection$: Observable<any>;
   cols: any;
   itemsSelected$: Observable<Meal[]>;
 
@@ -34,18 +33,14 @@ export class MealListComponent implements OnInit {
     );
 
     this.collection$ = this.store$.select(
-      MealStoreSelectors.selectAll
-    ).pipe(
-      tap(values => {
-        if (values && values.length > 0) {
-          this.cols = Object.keys(values[0]);
-        }
-      })
-    );
+      MealStoreSelectors.selectMealDaily
+    )/*.pipe (
+      map(items =>
+        items.filter(item => item.date === MealStoreSelectors.selectMealDaily.toString())));*/
 
-/*    this.store$.dispatch(
-      MealStoreActions.SearchRequest({queryParams: {}})
-    );*/
+
+
+  /*=== MealStoreSelectors.selectMealDaily*/
 
   }
 

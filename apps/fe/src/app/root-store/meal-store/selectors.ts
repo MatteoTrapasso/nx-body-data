@@ -33,7 +33,7 @@ export const selectMealDaily = createSelector(
     console.log('date', date)
     const result = values.findIndex(value => {
       const dateA =  value.date
-      const dateB =  date.split('-').join('/')
+      const dateB =  date
 /*      console.log('dateB', dateB)
       console.log('dateA', dateA)*/
       return dateA === dateB
