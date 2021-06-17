@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MealStoreActions, MealStoreSelectors} from "@root-store/meal-store/index";
-import {Meal} from "@models/vo/meal";
+import {Meal, MenuItem} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
 import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
@@ -39,10 +39,12 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   setItemPerform(value: Meal): void {
     this.makeFrom();
     this.form.reset(value);
+    value.menu.forEach(value1 => {
+      this.addMenu(value1)
+    })
   }
 
   makeFrom(): void {
-
     this.foods$ = this.store$.select(
       FoodStoreSelectors.selectAll
     );
@@ -112,10 +114,10 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       });
   }
 
-  addFood() {
+  addMenu(item: MenuItem = new MenuItem()) {
     const foodForm = this.fb.group({
-      food: ['', Validators.required],
-      qty: ['0', Validators.required]
+      food: [item.food, Validators.required],
+      qty: [item.qty, Validators.required]
     });
 
     this.foods.push(foodForm);

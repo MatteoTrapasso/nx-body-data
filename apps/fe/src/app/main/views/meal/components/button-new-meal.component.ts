@@ -6,6 +6,7 @@ import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 import {MealStoreSelectors, RootStoreState} from '@root-store/index';
 import {Meal} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
+import {first, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-button-new-meal',
@@ -30,17 +31,22 @@ export class ButtonNewMealComponent implements OnInit {
   }
 
   onCreate() {
-    const item: Meal = new Meal();
-    let dateA: any
-    this.store$.select(MealStoreSelectors.selectMealDaily).pipe(select(state => state.date)).subscribe(value => dateA = value)
-    item.date = getBaseDate(dateA);
-    const data: PopUpData<Meal> = {
-      item,
-      props: {title: 'New Meal', route: 'meal'}
-    };
-    this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
-      path: ['meal', {outlets: {popUp: ['edit']}}],
-      data
-    }));
+    this.store$.pipe(
+      select(MealStoreSelectors.selectMealDaily),
+      map(state => state.date),
+      first()
+    ).subscribe(value => {
+      const item: Meal = new Meal();
+      item.date = getBaseDate(value);
+      item.menu = [];
+      const data: PopUpData<Meal> = {
+        item,
+        props: {title: 'New Meal', route: 'meal'}
+      };
+      this.store$.dispatch(RouterStoreActions.RouterGoPopUp({
+        path: ['meal', {outlets: {popUp: ['edit']}}],
+        data
+      }));
+    })
   }
 }
