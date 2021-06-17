@@ -1,12 +1,14 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MealStoreActions} from "@root-store/meal-store/index";
+import {MealStoreActions, MealStoreSelectors} from "@root-store/meal-store/index";
 import {Meal} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
 import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
+import {selectMealDaily} from "@root-store/meal-store/selectors";
+import {select} from "@ngrx/store";
 
 
 @Component({
@@ -33,7 +35,6 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
    totProtein: number;//sum of (Total_protein/100) * qty selected foods
    totCarb: number;//sum of (Available_carbohydrates_MSE/100) * qty selected foods
    totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/
-
 
   setItemPerform(value: Meal): void {
     this.makeFrom();
@@ -65,11 +66,9 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
         }]
     };
 
-    const date = new Date();
-
 
     this._id = this.fb.control(this._id, Validators.required);
-    this.date = this.fb.control({value: getBaseDate(date), disabled: true});
+    this.date = this.fb.control({value: '', disabled: true});
     this.type = this.fb.control('', Validators.required);
     this.time = this.fb.control('', Validators.required);
 

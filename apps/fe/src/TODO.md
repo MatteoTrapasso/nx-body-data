@@ -84,9 +84,9 @@
 - [ x ] fix be for meal (foods = array of Food + qty)
 - [ x ] save meal
 - [ x ] selector meal store, selezionare meal con quella data
+- [ x ] inserire data corrente in edit new meal
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] fix modify, non carica dati meal
-- [   ] inserire in edit data della pagina corrente
 - [   ] disabilitare save se form non completo
 - [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali

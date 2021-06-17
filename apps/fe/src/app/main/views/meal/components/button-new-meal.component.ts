@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable, of} from 'rxjs';
 import {RouterStoreActions} from '@root-store/router-store/index';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
-import {RootStoreState} from '@root-store/index';
+import {MealStoreSelectors, RootStoreState} from '@root-store/index';
 import {Meal} from "@models/vo/meal";
 import {getBaseDate} from "@core/utils/date-utils";
 
@@ -31,7 +31,8 @@ export class ButtonNewMealComponent implements OnInit {
 
   onCreate() {
     const item: Meal = new Meal();
-    const dateA = new Date();
+    let dateA: any
+    this.store$.select(MealStoreSelectors.selectMealDaily).pipe(select(state => state.date)).subscribe(value => dateA = value)
     item.date = getBaseDate(dateA);
     const data: PopUpData<Meal> = {
       item,
