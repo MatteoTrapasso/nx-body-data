@@ -1,14 +1,11 @@
 import {Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MealStoreActions, MealStoreSelectors} from "@root-store/meal-store/index";
+import {MealStoreActions} from "@root-store/meal-store/index";
 import {Meal, MenuItem} from "@models/vo/meal";
-import {getBaseDate} from "@core/utils/date-utils";
 import {Observable} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
-import {selectMealDaily} from "@root-store/meal-store/selectors";
-import {select} from "@ngrx/store";
 
 
 @Component({
@@ -39,7 +36,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   setItemPerform(value: Meal): void {
     this.makeFrom();
     this.form.reset(value);
-    value.menu.forEach(value1 => {
+    value.menu.forEach(value1 => { /*value.menu=undefined!!!!!!!!!!!!!*/
       this.addMenu(value1)
     })
   }
@@ -79,7 +76,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       date: this.date, // attributo
       type: this.type, // attributo
       time: this.time, // attributo
-      foods: this.fb.array([])
+      menu: this.fb.array([])
     });
   }
 
@@ -120,15 +117,15 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       qty: [item.qty, Validators.required]
     });
 
-    this.foods.push(foodForm);
+    this.menu.push(foodForm);
   }
 
-  get foods() {
-    return this.form.controls["foods"] as FormArray;
+  get menu() {
+    return this.form.controls["menu"] as FormArray;
   }
 
   deleteFood(foodIndex: number) {
-    this.foods.removeAt(foodIndex);
+    this.menu.removeAt(foodIndex);
   }
 }
 

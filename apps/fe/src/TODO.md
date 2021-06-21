@@ -85,7 +85,10 @@
 - [ x ] save meal
 - [ x ] selector meal store, selezionare meal con quella data
 - [ x ] inserire data corrente in edit new meal
-- [   ] fix modify, non apre popup
+- [ x ] fix modify, non apre popup
+- [ x ] caricare dati con modify
+- [ x ] save modify non funziona
+- [   ] invalid time error on modify
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] disabilitare save se form non completo
 - [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)

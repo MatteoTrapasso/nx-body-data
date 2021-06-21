@@ -1,5 +1,5 @@
 import {ApiProperty} from '@nestjs/swagger';
-import {Food} from "@models/vo/food";
+import {MenuItem} from "@models/vo/meal";
 
 export class CreateMealDTO {
   @ApiProperty()
@@ -9,10 +9,7 @@ export class CreateMealDTO {
   readonly time: string;
 
   @ApiProperty()
-  readonly foods: {
-    food: Food,
-    qty: number
-  }[];
+  readonly menu: MenuItem[];
 
   @ApiProperty()
   readonly date: string;
