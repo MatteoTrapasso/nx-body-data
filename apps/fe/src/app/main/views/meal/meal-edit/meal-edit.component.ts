@@ -36,7 +36,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   setItemPerform(value: Meal): void {
     this.makeFrom();
     this.form.reset(value);
-    value.menu.forEach(value1 => { /*value.menu=undefined!!!!!!!!!!!!!*/
+    value.menu.forEach(value1 => {
       this.addMenu(value1)
     })
   }
