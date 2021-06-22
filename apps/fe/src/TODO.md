@@ -89,10 +89,12 @@
 - [ x ] caricare dati con modify
 - [ x ] save modify non funziona
 - [   ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
-- [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
-- [   ] disabilitare save se form non completo
-- [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
+- [   ] calcolare totale valori singoli Meal, mealDay e allMeal
+- [   ] riempire grafico Meal Edit
+- [   ] riempire grafico mealDaily (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali
+- [   ] disabilitare save se form non completo
+- [   ] in edit espandere nome alimento per dettagli
 - [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
