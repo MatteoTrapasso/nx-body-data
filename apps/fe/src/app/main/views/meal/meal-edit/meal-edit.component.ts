@@ -27,10 +27,10 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   data: any;
   selectedType: any;
   options: any;
-  totFat = 0;
-  totProtein: number;
-  totCarbo: number;
-  totKcal: number;
+  totFat = 1;
+  totProtein = 1;
+  totCarbo = 1;
+  totKcal = 0;
 
   /* totFat: number; //sum of (Total_fat/100) * gty selected foods
    totProtein: number;//sum of (Total_protein/100) * qty selected foods
@@ -44,6 +44,10 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     value.menu.forEach(value1 => {
       this.addMenu(value1)
     })
+    this.getSumFat();
+    this.getSumCarbo();
+    this.getSumProtein();
+    this.getSumKcal();
   }
 
   makeFrom(): void {
@@ -55,7 +59,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       labels: ['Protein', 'Carbohydrates', 'Fat'],
       datasets: [
         {
-          data: [1, 1, 1],
+          data: [this.totProtein, this.totCarbo, this.totFat],
           backgroundColor: [
             "#D32F2F",
             "#689F38",
@@ -120,9 +124,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       food: [item.food, Validators.required],
       qty: [item.qty, Validators.required]
     });
-
     this.menu.push(foodForm);
-    this.getSumFat()
   }
 
   get menu() {
@@ -134,20 +136,19 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   }
 
   getSumFat() {
-    console.log('menu', this.menu.value)
     this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
   }
 
-   getSumProtein() {
-     this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein/100)*next.qty), 0);
-     }
+  getSumProtein() {
+    this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein / 100) * next.qty), 0);
+  }
 
-   getSumCarbo() {
-     this.totCarbo =  this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE/100)*next.qty), 0);
-   }
+  getSumCarbo() {
+    this.totCarbo = this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE / 100) * next.qty), 0);
+  }
 
-   getSumKcal() {
-     this.totKcal =  this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre/100)*next.qty), 0);
-   }
+  getSumKcal() {
+    this.totKcal = this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre / 100) * next.qty), 0);
+  }
 }
 

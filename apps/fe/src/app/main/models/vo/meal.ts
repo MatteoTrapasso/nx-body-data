@@ -11,6 +11,6 @@ export class Meal {
 }
 
 export class MenuItem {
-  food: Food
+  food: Food = {_id:'',Food_Code:'',Food_Name_ITA:'',Available_carbohydrates_MSE:0,Total_fat:0,Total_protein:0,Energy_Rec_with_fibre:0}
   qty = 0
 }

@@ -34,7 +34,10 @@
                 <input id="date" name="date" class="form-control" pInputText [formControl]="date"/>
               </div>
             </div>
-<pre>{{totFat}}</pre>
+<pre>{{totFat}}-</pre>
+<pre>{{totProtein}}-</pre>
+<pre>{{totCarbo}}-</pre>
+<pre>{{totKcal}}</pre><br>
 
             <ng-container formArrayName="menu">
               <ng-container *ngFor="let foodForm of menu.controls; let i = index">

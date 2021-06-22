@@ -5,5 +5,6 @@ export class Food {
   public Total_protein: number= undefined;
   public Total_fat: number= undefined;
   public Available_carbohydrates_MSE: number= undefined;
+  public Energy_Rec_with_fibre: number= undefined;
   static selectId: (item: Food) => string = item => item._id;
 }
