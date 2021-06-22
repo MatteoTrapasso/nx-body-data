@@ -88,7 +88,7 @@
 - [ x ] fix modify, non apre popup
 - [ x ] caricare dati con modify
 - [ x ] save modify non funziona
-- [   ] invalid time error on modify
+- [   ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
 - [   ] calcolo percentuali valori principali (grassi, proteine, carboidrati e kcal), per pasto e giornaliere
 - [   ] disabilitare save se form non completo
 - [   ] grafico meal grassi, proteine, carboidrati e kcal (ho commentato kcal)
