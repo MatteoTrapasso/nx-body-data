@@ -27,11 +27,16 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   data: any;
   selectedType: any;
   options: any;
+  totFat = 0;
+  totProtein: number;
+  totCarbo: number;
+  totKcal: number;
 
   /* totFat: number; //sum of (Total_fat/100) * gty selected foods
    totProtein: number;//sum of (Total_protein/100) * qty selected foods
-   totCarb: number;//sum of (Available_carbohydrates_MSE/100) * qty selected foods
+   totCarbo: number;//sum of (Available_carbohydrates_MSE/100) * qty selected foods
    totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/
+
 
   setItemPerform(value: Meal): void {
     this.makeFrom();
@@ -45,7 +50,6 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this.foods$ = this.store$.select(
       FoodStoreSelectors.selectAll
     );
-
 
     this.data = {
       labels: ['Protein', 'Carbohydrates', 'Fat'],
@@ -118,6 +122,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     });
 
     this.menu.push(foodForm);
+    this.getSumFat()
   }
 
   get menu() {
@@ -127,5 +132,22 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   deleteFood(foodIndex: number) {
     this.menu.removeAt(foodIndex);
   }
+
+  getSumFat() {
+    console.log('menu', this.menu.value)
+    this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
+  }
+
+   getSumProtein() {
+     this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein/100)*next.qty), 0);
+     }
+
+   getSumCarbo() {
+     this.totCarbo =  this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE/100)*next.qty), 0);
+   }
+
+   getSumKcal() {
+     this.totKcal =  this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre/100)*next.qty), 0);
+   }
 }
 
