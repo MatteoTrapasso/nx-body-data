@@ -27,6 +27,7 @@ import {AutoCompleteModule} from "primeng/autocomplete";
 import {MultiSelectModule} from "primeng/multiselect";
 import {InputNumberModule} from "primeng/inputnumber";
 import {CalendarModule} from "primeng/calendar";
+import {FieldsetModule} from 'primeng/fieldset';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {CalendarModule} from "primeng/calendar";
     AutoCompleteModule,
     MultiSelectModule,
     InputNumberModule,
-    CalendarModule
+    CalendarModule,
+    FieldsetModule
   ],
   providers: [],
   exports: [],

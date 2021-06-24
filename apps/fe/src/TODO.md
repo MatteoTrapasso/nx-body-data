@@ -88,7 +88,7 @@
 - [ x ] fix modify, non apre popup
 - [ x ] caricare dati con modify
 - [ x ] save modify non funziona
-- [   ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
+- [ x ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
 - [   ] calcolare totale valori singoli Meal, mealDay e allMeal
 - [   ] riempire grafico Meal Edit
 - [   ] riempire grafico mealDaily (ho commentato kcal)
