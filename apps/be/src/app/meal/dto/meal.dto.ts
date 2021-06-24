@@ -6,7 +6,7 @@ export class CreateMealDTO {
   readonly type: string;
 
   @ApiProperty()
-  readonly time: Date;
+  readonly time: string;
 
   @ApiProperty()
   readonly menu: MenuItem[];

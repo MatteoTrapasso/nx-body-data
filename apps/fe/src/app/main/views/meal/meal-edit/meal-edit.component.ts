@@ -3,7 +3,7 @@ import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MealStoreActions} from "@root-store/meal-store/index";
 import {Meal, MenuItem} from "@models/vo/meal";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {FoodStoreSelectors} from "@root-store/food-store/index";
 import {Food} from "@models/vo/food";
 
@@ -32,11 +32,6 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   totCarbo = 1;
   totKcal = 0;
 
-  /* totFat: number; //sum of (Total_fat/100) * gty selected foods
-   totProtein: number;//sum of (Total_protein/100) * qty selected foods
-   totCarbo: number;//sum of (Available_carbohydrates_MSE/100) * qty selected foods
-   totKcal: number;//sum of (Energy_Rec_with_fibre/100) * qty selected foods*/
-
 
   setItemPerform(value: Meal): void {
     this.makeFrom();
@@ -44,10 +39,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     value.menu.forEach(value1 => {
       this.addMenu(value1)
     })
-    this.getSumFat();
-    this.getSumCarbo();
-    this.getSumProtein();
-    this.getSumKcal();
+    this.getSumValues(); //calcolo valori
   }
 
   makeFrom(): void {
@@ -135,19 +127,26 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this.menu.removeAt(foodIndex);
   }
 
-  getSumFat() {
+  /*  getSumFat() {
+      console.log('menu---------------',this.menu.value)
+      this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
+    }
+
+    getSumProtein() {
+      this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein / 100) * next.qty), 0);
+    }
+
+    getSumCarbo() {
+      this.totCarbo = this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE / 100) * next.qty), 0);
+    }
+
+    getSumKcal() {
+      this.totKcal = this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre / 100) * next.qty), 0);
+    }*/
+  getSumValues() {
     this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
-  }
-
-  getSumProtein() {
     this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein / 100) * next.qty), 0);
-  }
-
-  getSumCarbo() {
     this.totCarbo = this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE / 100) * next.qty), 0);
-  }
-
-  getSumKcal() {
     this.totKcal = this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre / 100) * next.qty), 0);
   }
 }

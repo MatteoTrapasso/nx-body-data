@@ -3,7 +3,7 @@ import {MenuItem} from "@models/vo/meal";
 
 export interface Meal extends Document {
   readonly type: string;
-  readonly time: Date;
+  readonly time: string;
   readonly menu: MenuItem[];
   readonly date: string;
   readonly user: string;
