@@ -1,7 +1,7 @@
 <div class="p-d-flex p-p-3 card" *ngFor="let item of collection$|async" style="width: 100%">
-  <p-fieldset legend={{item.time}} [toggleable]="true"
-              style="width: 100%; padding-top: 1rem !important; padding-left: 0rem !important;">
-    <pre><strong>{{item.type}}</strong></pre>
+  <p-fieldset legend={{item.type}} [toggleable]="true"
+              style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important;">
+    <pre><strong>{{item.time}}</strong></pre>
     <div class="p-d-flex w-100" style="display: flex;
                               justify-content: center;
                               align-items: center;">
