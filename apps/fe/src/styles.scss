@@ -8,3 +8,13 @@ body {
   background-color: $sidebarBgColor;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  overflow-y: hidden;
+  box-shadow: inset 0 0 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
+
