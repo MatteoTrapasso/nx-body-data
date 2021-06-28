@@ -12,10 +12,16 @@
 
   <div class="p-grid">
     <div class="p-col">
-<!--      <div>
+      <div style="     background-color: #2A323D;
+                       position:fixed;
+                       top:0;
+                       width:90%;
+                       height: 30%;
+                       z-index:100;
+                       margin-top: 10px">
         <p-chart type="doughnut" [options]="chartOptions" [data]="data$|async"></p-chart>
-      </div>-->
-
+      </div>
+<div style="margin-top:45%">
       <form
         class="dynamic-form"
         [formGroup]="form">
@@ -89,6 +95,7 @@
             </ng-container>
           </div>
         </div>
+
         <div style="margin: 2%">
 
           <button type="button" pButton icon="pi pi-plus"
@@ -98,6 +105,7 @@
 
         </div>
       </form>
+</div>
     </div>
   </div>
 
