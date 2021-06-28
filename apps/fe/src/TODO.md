@@ -89,8 +89,9 @@
 - [ x ] caricare dati con modify
 - [ x ] save modify non funziona
 - [ x ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
-- [   ] calcolare totale valori singoli Meal, mealDay e allMeal
-- [   ] riempire grafico Meal Edit
+- [ x ] calcolare totale valori singoli Meal
+- [ x ] riempire grafico Meal Edit
+- [   ] calcolare totale valori singoli mealDay
 - [   ] riempire grafico mealDaily (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare save se form non completo
