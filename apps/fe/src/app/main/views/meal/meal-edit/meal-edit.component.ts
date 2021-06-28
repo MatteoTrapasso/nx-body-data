@@ -31,6 +31,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   options: any;
   chartOptions: any =  {animation: { duration: false }}
   onChangeFormSubject: BehaviorSubject<any>;
+  kcal:any=0;
 /*  totFat = 1;
   totProtein = 1;
   totCarbo = 1;
@@ -44,6 +45,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
         const fat = (value1.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0))
         const protein = (value1.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0))
         const carbo = (value1.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0))
+        this.kcal = (value1.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre/100*menu.qty,0))
         return this.makeChartData(protein,carbo,fat)
       })
     )
@@ -53,8 +55,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this.form.reset(value);
     value.menu.forEach(value1 => {
       this.addMenu(value1)
-    })/*
-    this.getSumValues(); //calcolo valori*/
+    })
 
   }
 
@@ -158,22 +159,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
     this.menu.removeAt(foodIndex);
   }
 
-  /*  getSumFat() {
-      console.log('menu---------------',this.menu.value)
-      this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
-    }
 
-    getSumProtein() {
-      this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein / 100) * next.qty), 0);
-    }
-
-    getSumCarbo() {
-      this.totCarbo = this.menu.value.reduce((prev, next) => prev + +((next.food.Available_carbohydrates_MSE / 100) * next.qty), 0);
-    }
-
-    getSumKcal() {
-      this.totKcal = this.menu.value.reduce((prev, next) => prev + +((next.food.Energy_Rec_with_fibre / 100) * next.qty), 0);
-    }*/
 /*  getSumValues() {
     this.totFat = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_fat / 100) * next.qty), 0);
     this.totProtein = this.menu.value.reduce((prev, next) => prev + +((next.food.Total_protein / 100) * next.qty), 0);

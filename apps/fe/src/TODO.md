@@ -91,6 +91,7 @@
 - [ x ] invalid time error on modify (nel modify il time arriva come Date, capire che formato accetta)
 - [ x ] calcolare totale valori singoli Meal
 - [ x ] riempire grafico Meal Edit
+- [ x ] view Kcal Totali in edit
 - [   ] calcolare totale valori singoli mealDay
 - [   ] riempire grafico mealDaily (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali
