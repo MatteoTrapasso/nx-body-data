@@ -44,7 +44,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
         const fat = (value1.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0))
         const protein = (value1.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0))
         const carbo = (value1.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0))
-        return this.makeChartData(carbo,protein,fat)
+        return this.makeChartData(protein,carbo,fat)
       })
     )
 
@@ -60,17 +60,12 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
 
 
 
-  makeChartData(fat, protein, aaa): any{
+  makeChartData(fat, protein, carbo): any{
    return  {
-     options: {
-       animation: {
-         duration: false
-       }
-     },
       labels: ['Protein', 'Carbohydrates', 'Fat'],
         datasets: [
       {
-        data: [fat,protein, aaa],
+        data: [fat,protein, carbo],
         backgroundColor: [
           "#D32F2F",
           "#689F38",

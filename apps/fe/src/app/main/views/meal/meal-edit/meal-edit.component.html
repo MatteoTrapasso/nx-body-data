@@ -3,7 +3,7 @@
           [visible]="true"
           [modal]="true"
           [responsive]="true"
-          [style]="{maxWidth:'650px'}"
+          [style]="{maxWidth:'450px'}"
           [minY]="70"
           [maximizable]="false"
           [closable]="false"
@@ -12,27 +12,25 @@
 
   <div class="p-grid">
     <div class="p-col">
-
-      <div style="vertical-align: top">
+<!--      <div>
         <p-chart type="doughnut" [options]="chartOptions" [data]="data$|async"></p-chart>
-      </div>
+      </div>-->
 
+      <form
+        class="dynamic-form"
+        [formGroup]="form">
 
-        <form
-          class="dynamic-form"
-          [formGroup]="form">
-
-          <div class="card" style="margin-top: 10px">
-            <div class="p-fluid p-formgrid p-grid">
-              <div class="p-field p-col-12 p-md-6">
-                <label><strong>type</strong></label><br>
-                <p-dropdown inputId="type" [options]="types" placeholder="Select"
-                            [formControl]="type"></p-dropdown>
-              </div>
-              <div class="p-field p-col-12 p-md-6">
-                <label><strong>time</strong></label><br>
-                <input type="time" id="time" name="time"
-                       style="height: 40px;
+        <div class="card" style="margin-top: 10px;">
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-6" style=" margin-left: 10px">
+              <label><strong>type</strong></label><br>
+              <p-dropdown inputId="type" [options]="types" placeholder="Select"
+                          [formControl]="type"></p-dropdown>
+            </div>
+            <div class="p-field p-col-12 p-md-6" style=" margin-left: 10px">
+              <label><strong>time</strong></label><br>
+              <input type="time" id="time" name="time"
+                     style="height: 40px;
                     background: #20262e;
                     border: 1px solid #3f4b5b;
                     transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -41,7 +39,7 @@
                     font-weight: normal;
                     color: rgba(255, 255, 255, 0.87);
                     " [formControl]="time" required>
-              </div>
+            </div>
 
 
             <div class="p-grid" style="display: none;">
@@ -90,15 +88,15 @@
               </ng-container>
             </ng-container>
           </div>
-      </div>
-      <div style="margin: 2%">
+        </div>
+        <div style="margin: 2%">
 
-        <button type="button" pButton icon="pi pi-plus"
-                label="Add Food"
-                class="p-button-success p-ml-auto"
-                (click)="addMenu()"></button>
+          <button type="button" pButton icon="pi pi-plus"
+                  label="Add Food"
+                  class="p-button-success p-ml-auto"
+                  (click)="addMenu()"></button>
 
-      </div>
+        </div>
       </form>
     </div>
   </div>
