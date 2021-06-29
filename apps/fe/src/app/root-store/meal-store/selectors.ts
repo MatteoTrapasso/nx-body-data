@@ -59,7 +59,7 @@ export const selectMealThisDay = createSelector(
       return dateA === dateB
     })
     if(!result){
-      return {date} as Meal
+      return [{date}] as Meal[]
     }
     return result
   }

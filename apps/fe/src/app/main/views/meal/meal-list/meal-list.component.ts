@@ -17,7 +17,7 @@ import {selectMealThisDay} from "@root-store/meal-store/selectors";
 })
 export class MealListComponent implements OnInit {
 
-  collection$: Observable<any>;
+  collection$: Observable<Meal[]>;
   cols: any;
   itemsSelected$: Observable<Meal[]>;
 

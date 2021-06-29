@@ -25,100 +25,116 @@ export class MealDailyDetailComponent implements OnInit {
   foods: [any];
 
   constructor(private store$: Store,
-  private confirmationService: ConfirmationService) {
+              private confirmationService: ConfirmationService) {
   }
 
   ngOnInit(): void {
     this.store$.dispatch(FoodStoreActions.SearchRequest({queryParams: {}}));
-      this.meals$ = this.store$.select(
-        MealStoreSelectors.selectAll
-      ).pipe(map((values: Meal[]) => {
+    this.meals$ = this.store$.select(
+      MealStoreSelectors.selectAll
+    ).pipe(
+      map(values => { //ordina per data
+        return values.sort((a, b) => {
+          const tempA = a.date.split('/');
+          const A = (tempA[2] + tempA[0] + tempA[1]) + 0;
+          const tempB = b.date.split('/');
+          const B = (tempB[2] + tempB[0] + tempB[1]) + 0;
+          if (A < B) {
+            return -1;
+          }
+          if (A > B) {
+            return 1;
+          }
+          // i nomi devono essere uguali*!/
+          return 0;
 
-          const initialState = {
-            labels: [],
-            datasets: [
-              {
-                label: 'Kcal',
-                hidden: false,
-                data: [],
-                fill: false,
-                borderColor: '#42A5F5',
-              },
-              {
-                label: 'fat',
-                hidden: false,
-                data: [],
-                fill: false,
-                borderColor: '#FBC02D',
-              },
-              {
-                label: 'proteins',
-                hidden: false,
-                data: [],
-                fill: false,
-                borderColor: '#D32F2F',
-              },
-              {
-                label: '\n' +
-                  'carbohydrates',
-                hidden: false,
-                data: [],
-                fill: false,
-                borderColor: '#689F38',
-              },
-            ]
+        })
+      }),
+      map((values: Meal[]) => {     //trasforma la lista di Meal[] in un oggetto {[key:string]:Meal[]}
+        return values.reduce((previousValue, currentValue) => {
+          if (!previousValue[currentValue.date]) {
+            previousValue[currentValue.date] = []
+          }
+          previousValue[currentValue.date].push(currentValue)
+          return previousValue
+        }, {})
+      }),
+      map((values: { [key: string]: Meal[] }) => {
+          console.log('values', values)
+          const keys = Object.keys(values)
+
+
+          const datasets = {
+            kcal: {
+              label: 'Kcal',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#42A5F5',
+            },
+            fat: {
+              label: 'fat',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#FBC02D',
+            },
+            proteins: {
+              label: 'proteins',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#D32F2F',
+            },
+            carbohydrates: {
+              label: 'carbohydrates',
+              hidden: false,
+              data: [],
+              fill: false,
+              borderColor: '#689F38',
+            }
+          }
+
+          keys.forEach((date: string) => {
+            const meals: Meal[] = values[date];
+            meals.forEach((meal: Meal) => {
+              datasets.kcal.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre/100*menu.qty,0))
+              datasets.fat.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0))
+              datasets.proteins.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0))
+              datasets.carbohydrates.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0))
+            })
+          })
+          const result = {
+            labels: keys,
+            datasets: Object.values(datasets)
           };
 
-          const result = values.sort((a, b) => {
-            const tempA = a.date.split('/');
-            const A = (tempA[2] + tempA[0] + tempA[1]) + 0;
-            const tempB = b.date.split('/');
-            const B = (tempB[2] + tempB[0] + tempB[1]) + 0;
-            if (A < B) {
-              return -1;
-            }
-            if (A > B) {
-              return 1;
-            }
-            // i nomi devono essere uguali*!/
-            return 0;
-
-          })
-            .reduce(
-              (previous, current) => {
-                console.log('previous', previous);
-                console.log('current', current);
-                previous.labels.push(current.date);
-                /*previous.datasets[0].data.push(current.kcal);*/
-                return previous;
-              }, initialState
-            );
           console.log('result', result);
           return result;
         }
-        )
-      );
+      )
+    );
 
-      this.mealOptions = {
-        legend: {
-          labels: {
+    this.mealOptions = {
+      legend: {
+        labels: {
+          fontColor: '#495057'
+        }
+      },
+      scales: {
+        xAxes: [{
+          ticks: {
             fontColor: '#495057'
           }
-        },
-        scales: {
-          xAxes: [{
-            ticks: {
-              fontColor: '#495057'
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              fontColor: '#495057'
-            }
-          }]
-        }
-      };
-    }
+        }],
+        yAxes: [{
+          ticks: {
+            fontColor: '#495057'
+          }
+        }]
+      }
+    };
+  }
 
   onEdit(item): void {
     console.log('MealDailyDetailComponent.onEdit()');
@@ -163,4 +179,4 @@ export class MealDailyDetailComponent implements OnInit {
 
   }
 
-  }
+}
