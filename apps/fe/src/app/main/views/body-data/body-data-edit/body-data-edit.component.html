@@ -61,7 +61,7 @@
 
 
   <ng-template pTemplate="footer">
-    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())" [disabled]="form.invalid"></button>
     <button pButton type="button" label="Cancel" (click)="cancel()"></button>
   </ng-template>
 

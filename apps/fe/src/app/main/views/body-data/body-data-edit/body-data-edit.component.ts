@@ -34,7 +34,7 @@ export class BodyDataEditComponent extends PopUpBaseComponent<BodyData> {
   makeFrom(): void {
     const date = new Date();
 
-    this._id = this.fb.control(this._id, Validators.required);
+    this._id = this.fb.control(this._id);
     this.height = this.fb.control('', Validators.required);
     this.weight = this.fb.control('', Validators.required);
     this.bDate = this.fb.control('', Validators.required);

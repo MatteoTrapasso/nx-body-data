@@ -93,7 +93,8 @@
 - [ x ] riempire grafico Meal Edit
 - [ x ] view Kcal Totali in edit
 - [ x ] componente custom per elementi lista meal
-- [ x ] disabilitare save se form non completo
+- [ x ] disabilitare save se form non completo meal
+- [ x ] disabilitare save se form non completo bodyData
 - [ x ] dimensione new edit empty
 - [   ] riempire grafico mealDaily
 - [   ] calcolare valori grafico single meal
