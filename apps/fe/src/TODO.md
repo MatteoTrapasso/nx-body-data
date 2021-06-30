@@ -96,9 +96,9 @@
 - [ x ] disabilitare save se form non completo meal
 - [ x ] disabilitare save se form non completo bodyData
 - [ x ] dimensione new edit empty
+- [ x ] controllare dimensione autocomplete food in edit
+- [ x ] calcolare valori grafico single meal
 - [   ] riempire grafico mealDaily
-- [   ] calcolare valori grafico single meal
-- [   ] controllare dimensione autocomplete food in edit
 - [   ] in edit espandere nome alimento per dettagli
 - [   ] click su grafico apre giorno selezionato
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
