@@ -1,9 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {Observable, of} from 'rxjs';
+import {Store} from '@ngrx/store';
 import {RouterStoreActions} from '@root-store/router-store/index';
 import {PopUpData} from '@root-store/router-store/pop-up-base.component';
-import {MealStoreActions, MealStoreSelectors, RootStoreState} from '@root-store/index';
+import {MealStoreActions, RootStoreState} from '@root-store/index';
 import {Meal} from "@models/vo/meal";
 import {ConfirmationService} from "primeng/api";
 
