@@ -98,10 +98,18 @@ export class MealDailyDetailComponent implements OnInit {
           keys.forEach((date: string) => {
             const meals: Meal[] = values[date];
             meals.forEach((meal: Meal) => {
-              datasets.kcal.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre/100*menu.qty,0))
-              datasets.fat.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0))
-              datasets.proteins.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0))
-              datasets.carbohydrates.data.push(meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0))
+              console.log('meal', meal)
+              const kcal = meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre/100*menu.qty,0)
+              const fat = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0)
+              const carbohydrates = meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0)
+              const protein = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0)
+              datasets.kcal.data.push()
+              datasets.fat.data.push()
+              datasets.proteins.data.push()
+              datasets.carbohydrates.data.push()
+            })
+            reduce((acc, value) => {
+
             })
           })
           const result = {

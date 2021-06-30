@@ -28,6 +28,7 @@ import {MultiSelectModule} from "primeng/multiselect";
 import {InputNumberModule} from "primeng/inputnumber";
 import {CalendarModule} from "primeng/calendar";
 import {FieldsetModule} from 'primeng/fieldset';
+import {SingleMealComponent} from "@views/meal/components/single-meal";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {FieldsetModule} from 'primeng/fieldset';
     ButtonCreateManyTestMealComponent,
     MealDailyDetailComponent,
     NavigationBarComponent,
+    SingleMealComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,7 @@ import {FieldsetModule} from 'primeng/fieldset';
     MultiSelectModule,
     InputNumberModule,
     CalendarModule,
-    FieldsetModule
+    FieldsetModule,
   ],
   providers: [],
   exports: [],

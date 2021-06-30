@@ -1,26 +1,5 @@
 <div class="p-d-flex p-p-3 card" *ngFor="let item of collection$|async" style="width: 100%">
-  <p-fieldset legend={{item.type}} [toggleable]="true"
-              style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important;">
-    <pre><strong>{{item.time}}</strong></pre>
-    <div class="p-d-flex w-100" style="display: flex;
-                              justify-content: center;
-                              align-items: center;">
-      <div class="p-mr-2 w-25 data fat"></div>
-      <div class="p-mr-2 w-50 data protein"></div>
-      <div class="p-mr-2 w-25 data carbohydrates"></div>
-    </div>
-  </p-fieldset>
-  <div class="p-mr-2 p-ml-auto button" style="display: flex;
-       justify-content: center;
-       align-items: center;
-       margin-top: 40px">
-    <button pButton pRipple type="button" icon="pi pi-pencil"
-            class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)"
-            pTooltip="modify" tooltipPosition="top"></button>
-    <button pButton pRipple type="button" icon="pi pi-times"
-            class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)" pTooltip="delete"
-            tooltipPosition="top"></button>
-  </div>
+  <app-single-meal [item]="item"></app-single-meal>
 </div>
 
 
