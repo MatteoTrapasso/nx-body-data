@@ -10,8 +10,9 @@ import {ConfirmationService} from "primeng/api";
 @Component({
   selector: 'app-single-meal',
   template: `
+    <div class="p-d-flex p-p-3 card">
       <p-fieldset legend={{item.type}} [toggleable]="true"
-                  style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important;">
+                  style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important; margin-right: 10px !important;">
         <pre><strong>{{item.time}}</strong></pre>
         <div class="p-d-flex w-100" style="display: flex;
                               justify-content: center;
@@ -24,7 +25,7 @@ import {ConfirmationService} from "primeng/api";
       <div class="p-mr-2 p-ml-auto button" style="display: flex;
        justify-content: center;
        align-items: center;
-       margin-top: 40px">
+       margin-top: 40px;">
         <button pButton pRipple type="button" icon="pi pi-pencil"
                 class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)"
                 pTooltip="modify" tooltipPosition="top"></button>
@@ -32,6 +33,7 @@ import {ConfirmationService} from "primeng/api";
                 class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)" pTooltip="delete"
                 tooltipPosition="top"></button>
       </div>
+    </div>
   `,
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush

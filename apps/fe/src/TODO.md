@@ -92,8 +92,9 @@
 - [ x ] calcolare totale valori singoli Meal
 - [ x ] riempire grafico Meal Edit
 - [ x ] view Kcal Totali in edit
+- [ x ] componente custom per elementi lista meal
+- [   ] riempire grafico mealDaily
 - [   ] calcolare totale valori mealDay
-- [   ] riempire grafico mealDaily (ho commentato kcal)
 - [   ] ridimensionare componente meal in base alle percentuali
 - [   ] disabilitare save se form non completo
 - [   ] in edit espandere nome alimento per dettagli
