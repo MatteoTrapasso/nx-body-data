@@ -93,12 +93,12 @@
 - [ x ] riempire grafico Meal Edit
 - [ x ] view Kcal Totali in edit
 - [ x ] componente custom per elementi lista meal
+- [ x ] disabilitare save se form non completo
+- [ x ] dimensione new edit empty
 - [   ] riempire grafico mealDaily
-- [   ] calcolare totale valori mealDay
-- [   ] ridimensionare componente meal in base alle percentuali
-- [   ] disabilitare save se form non completo
+- [   ] calcolare valori grafico single meal
+- [   ] controllare dimensione autocomplete food in edit
 - [   ] in edit espandere nome alimento per dettagli
-- [   ] disabilitare freccia destra se ci troviamo su giorno attuale
 - [   ] click su grafico apre giorno selezionato
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 

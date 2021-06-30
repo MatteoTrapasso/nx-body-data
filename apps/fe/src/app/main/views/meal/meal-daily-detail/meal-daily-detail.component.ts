@@ -25,8 +25,7 @@ export class MealDailyDetailComponent implements OnInit {
   foods: [any];
 
   constructor(private store$: Store,
-              private confirmationService: ConfirmationService) {
-  }
+              private confirmationService: ConfirmationService) {}
 
   ngOnInit(): void {
     this.store$.dispatch(FoodStoreActions.SearchRequest({queryParams: {}}));
@@ -94,22 +93,20 @@ export class MealDailyDetailComponent implements OnInit {
               borderColor: '#689F38',
             }
           }
-
+          //keys è l'array dei meals divisi per data (chiave)
           keys.forEach((date: string) => {
-            const meals: Meal[] = values[date];
+            const meals: Meal[] = values[date]; //meals è l'array dei meals con la stessa data
+            console.log('meals', meals)
+            //manca sommare i totali dei singoli meal con quelli dello stesso giorno
             meals.forEach((meal: Meal) => {
-              console.log('meal', meal)
-              const kcal = meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre/100*menu.qty,0)
-              const fat = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat/100*menu.qty,0)
-              const carbohydrates = meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE/100*menu.qty,0)
-              const protein = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein/100*menu.qty,0)
-              datasets.kcal.data.push()
+              /*const kcal = meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre / 100 * menu.qty, 0)
+              const fat = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0)
+              const carbohydrates = meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE / 100 * menu.qty, 0)
+              const protein = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein / 100 * menu.qty, 0)
+            */datasets.kcal.data.push()
               datasets.fat.data.push()
               datasets.proteins.data.push()
               datasets.carbohydrates.data.push()
-            })
-            reduce((acc, value) => {
-
             })
           })
           const result = {

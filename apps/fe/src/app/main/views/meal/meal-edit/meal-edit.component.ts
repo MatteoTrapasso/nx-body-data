@@ -32,10 +32,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   chartOptions: any =  {animation: { duration: false }}
   onChangeFormSubject: BehaviorSubject<any>;
   kcal:any=0;
-/*  totFat = 1;
-  totProtein = 1;
-  totCarbo = 1;
-  totKcal = 0;*/
+
 
   setItemPerform(value: Meal): void {
     this.onChangeFormSubject = new BehaviorSubject<any>(value)
@@ -86,7 +83,7 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
       FoodStoreSelectors.selectAll
     );
 
-    this._id = this.fb.control(this._id, Validators.required);
+    this._id = this.fb.control(this._id);
     this.date = this.fb.control({value: '', disabled: true});
     this.type = this.fb.control('', Validators.required);
     this.time = this.fb.control('', Validators.required);

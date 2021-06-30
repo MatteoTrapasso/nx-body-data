@@ -3,7 +3,7 @@
           [visible]="true"
           [modal]="true"
           [responsive]="true"
-          [style]="{maxWidth:'450px'}"
+          [style]="{maxWidth:'450px', minWidth: '450px'}"
           [minY]="70"
           [maximizable]="false"
           [closable]="false"
@@ -24,7 +24,7 @@
         <p-chart type="doughnut" [options]="chartOptions" [data]="data$|async"></p-chart>
       </div>
       <div style="margin-top:45%">
-        <div align="center">
+        <div align="center" style="margin-top: 10px">
          <strong> <pre>{{kcal}} Kcal</pre> </strong>
         </div>
         <form
@@ -115,7 +115,7 @@
   </div>
 
   <ng-template pTemplate="footer">
-    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())"></button>
+    <button pButton class="p-button-success mr-1" label="save" (click)="submit(form.getRawValue())" [disabled]="form.invalid"></button>
     <button pButton type="button" label="Cancel" (click)="cancel()"></button>
   </ng-template>
 
