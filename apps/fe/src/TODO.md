@@ -99,8 +99,8 @@
 - [ x ] controllare dimensione autocomplete food in edit
 - [ x ] calcolare valori grafico single meal
 - [ x ] solo due cifre decimali Kcal
+- [ x ] in single meal espandere nome alimento per dettagli
 - [   ] riempire grafico mealDaily
-- [   ] in edit espandere nome alimento per dettagli
 - [   ] click su grafico apre giorno selezionato
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 

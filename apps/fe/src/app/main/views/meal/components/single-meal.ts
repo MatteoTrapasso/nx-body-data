@@ -5,7 +5,7 @@ import {PopUpData} from '@root-store/router-store/pop-up-base.component';
 import {MealStoreActions, RootStoreState} from '@root-store/index';
 import {Meal} from "@models/vo/meal";
 import {ConfirmationService} from "primeng/api";
-import {map} from "rxjs/operators";
+import {Food} from "@models/vo/food";
 
 @Component({
   selector: 'app-single-meal',
@@ -26,7 +26,37 @@ import {map} from "rxjs/operators";
         <p-accordion>
           <div *ngFor="let menu of item.menu">
             <p-accordionTab header="{{menu.food.Food_Name_ITA}} (x{{menu.qty}}g)">
-              <pre>{{menu.food|json}}</pre>
+              <table style="width: 100%; align-items: center">
+                  <tr>
+                    <th>
+                      Kcal
+                    </th>
+                    <th>
+                      grassi (g)
+                    </th>
+                    <th>
+                      proteine (g)
+                    </th>
+                    <th>
+                      carboidrati (g)
+                    </th>
+                  </tr>
+                  <tr>
+                    <td style=" text-align: center; vertical-align: middle;">
+                      {{menu.food.Energy_Rec_with_fibre}}
+                    </td>
+                    <td style=" text-align: center; vertical-align: middle;">
+                      {{menu.food.Total_fat}}
+                    </td>
+                    <td style=" text-align: center; vertical-align: middle;">
+                      {{menu.food.Total_protein}}
+                    </td>
+                    <td style=" text-align: center; vertical-align: middle;">
+                      {{menu.food.Available_carbohydrates_MSE}}
+                    </td>
+                  </tr>
+              </table>
+
             </p-accordionTab>
           </div>
         </p-accordion>
@@ -51,13 +81,13 @@ export class SingleMealComponent implements OnInit {
   carbo_dim: number
   kcal: number
 
+
   constructor(private store$: Store<RootStoreState.State>,
               private confirmationService: ConfirmationService) {
     console.log('singleMeal.constructor()');
   }
 
   ngOnInit() {
-
     console.log('item-----------------------',this.item)
 
     const fat = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0))
