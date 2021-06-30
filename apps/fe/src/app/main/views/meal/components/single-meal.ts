@@ -13,20 +13,20 @@ import {map} from "rxjs/operators";
     <div class="p-d-flex p-p-3 card">
       <p-fieldset legend={{item.type}} [toggleable]="true"
                   style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important; margin-right: 10px !important;">
-        <pre><strong>h:{{item.time}}</strong></pre>
+        <pre><strong><i class="pi pi-clock"></i> {{item.time}}</strong></pre>
         <pre><strong>{{kcal.toFixed(2)}} Kcal</strong></pre>
         <div class="p-d-flex w-100" style="display: flex;
                               justify-content: center;
                               align-items: center;
                               margin-bottom: 20px">
-          <div [style.width.%]=fat_dim style="background-color: #FBC02D; height: 20px;"></div>
-          <div [style.width.%]=carbo_dim style="background-color: #689F38;height: 20px;"></div>
-          <div [style.width.%]=protein_dim style="background-color: #D32F2F;height: 20px;"></div>
+          <div [style.width.%]=fat_dim style="background-color: #FBC02D; height: 20px;" [pTooltip]="fat_dim.toFixed(2)"></div>
+          <div [style.width.%]=carbo_dim style="background-color: #689F38;height: 20px;" [pTooltip]="carbo_dim.toFixed(2)"></div>
+          <div [style.width.%]=protein_dim style="background-color: #D32F2F;height: 20px;" [pTooltip]="protein_dim.toFixed(2)"></div>
         </div>
         <p-accordion>
           <div *ngFor="let menu of item.menu">
-            <p-accordionTab header="{{menu.food.Food_Name_ITA}} ({{menu.qty}}g)">
-              <p>inserire tabella valori food</p>
+            <p-accordionTab header="{{menu.food.Food_Name_ITA}} (x{{menu.qty}}g)">
+              <pre>{{menu.food|json}}</pre>
             </p-accordionTab>
           </div>
         </p-accordion>
@@ -57,6 +57,9 @@ export class SingleMealComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log('item-----------------------',this.item)
+
     const fat = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0))
     const protein = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Total_protein / 100 * menu.qty, 0))
     const carbo = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE / 100 * menu.qty, 0))
