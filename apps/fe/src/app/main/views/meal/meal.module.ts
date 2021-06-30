@@ -29,6 +29,7 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {CalendarModule} from "primeng/calendar";
 import {FieldsetModule} from 'primeng/fieldset';
 import {SingleMealComponent} from "@views/meal/components/single-meal";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {SingleMealComponent} from "@views/meal/components/single-meal";
     InputNumberModule,
     CalendarModule,
     FieldsetModule,
+    AccordionModule,
   ],
   providers: [],
   exports: [],
