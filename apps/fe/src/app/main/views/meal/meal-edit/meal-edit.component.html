@@ -3,7 +3,7 @@
           [visible]="true"
           [modal]="true"
           [responsive]="true"
-          [style]="{maxWidth:'450px', minWidth: '450px'}"
+          [style]="{maxWidth:'350px', minWidth: '350px'}"
           [minY]="70"
           [maximizable]="false"
           [closable]="false"
@@ -25,7 +25,7 @@
       </div>
       <div style="margin-top:45%">
         <div align="center" style="margin-top: 10px">
-         <strong> <pre>{{kcal}} Kcal</pre> </strong>
+         <strong> <pre style="margin-top: 160px;">{{kcal}} Kcal</pre> </strong>
         </div>
         <form
           class="dynamic-form"
@@ -66,8 +66,10 @@
                     <div class="p-mr-2" style="margin: 5%">
                       <label><strong>Food</strong></label><br>
                       <p-autoComplete [suggestions]="options"
+                                      size="20"
                                       (completeMethod)="filterMethod($event)" field="Food_Name_ITA"
                                       [dropdown]="true"
+                                      style="width: 50% !important;"
                                       formControlName="food">
                         <ng-template let-item pTemplate="item">
                           <div class="food-item">
