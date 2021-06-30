@@ -14,7 +14,7 @@ import {map} from "rxjs/operators";
       <p-fieldset legend={{item.type}} [toggleable]="true"
                   style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important; margin-right: 10px !important;">
         <pre><strong>{{item.time}}</strong></pre>
-        <pre><strong>{{kcal}} Kcal</strong></pre>
+        <pre><strong>{{kcal.toFixed(2)}} Kcal</strong></pre>
         <div class="p-d-flex w-100" style="display: flex;
                               justify-content: center;
                               align-items: center;">
