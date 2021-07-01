@@ -12,7 +12,7 @@ import {Food} from "@models/vo/food";
   template: `
     <div class="p-d-flex p-p-3 card" style="padding-left: 0 !important;">
       <p-fieldset legend={{item.type}} [toggleable]="true" [collapsed]="true"
-                  style="width: 90%; padding-top: 1rem !important; padding-left: 0 !important; margin-right: 20px !important;
+                  style="width: 100%; padding-top: 1rem !important; padding-left: 0 !important; margin-right: 20px !important;
                     margin-left: 0 !important">
         <pre><strong><i class="pi pi-clock"></i> {{item.time}}</strong></pre>
         <pre><strong>{{kcal.toFixed(2)}} Kcal</strong></pre>

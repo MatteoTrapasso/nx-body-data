@@ -14,12 +14,12 @@
       <th>
         date
       </th>
-<!--      <th>
-        bDate
-      </th>
-      <th>
-        gender
-      </th>-->
+      <!--  <th>
+              bDate
+            </th>
+            <th>
+              gender
+            </th>   -->
       <th style="width: 10em"></th> <!--actions-->
     </tr>
   </ng-template>
@@ -37,19 +37,21 @@
       <td>
         {{item['date']}}
       </td>
-<!--      <td>
-        {{item['bDate']}}
-      </td>
-      <td>
-        {{item['gender']}}
-      </td>-->
+      <!--      <td>
+              {{item['bDate']}}
+            </td>
+            <td>
+              {{item['gender']}}
+            </td>-->
       <td>
 
         <!--<button pButton pRipple type="button" icon="pi pi-copy" class="p-button-rounded p-button-outlined p-mr-1" (click)="onCopy(item)"></button>-->
         <button pButton pRipple type="button" icon="pi pi-pencil"
-                class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)" pTooltip="modify" tooltipPosition="top"></button>
+                class="p-button-rounded p-button-success p-button-outlined p-mr-1" (click)="onEdit(item)"
+                pTooltip="modify" tooltipPosition="top"></button>
         <button pButton pRipple type="button" icon="pi pi-times"
-                class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)" pTooltip="delete" tooltipPosition="top"></button>
+                class="p-button-rounded p-button-danger p-button-outlined" (click)="onDelete(item)" pTooltip="delete"
+                tooltipPosition="top"></button>
 
       </td>
     </tr>
