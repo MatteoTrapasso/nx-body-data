@@ -100,8 +100,8 @@
 - [ x ] calcolare valori grafico single meal
 - [ x ] solo due cifre decimali Kcal
 - [ x ] in single meal espandere nome alimento per dettagli
+- [ x ] fix single meal mobile size (ingrandire input qty)
 - [   ] riempire grafico mealDaily
-- [   ] click su grafico apre giorno selezionato
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 
 - [   ] profilo amministratore per monitorare utenti
