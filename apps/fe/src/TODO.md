@@ -100,8 +100,11 @@
 - [ x ] calcolare valori grafico single meal
 - [ x ] solo due cifre decimali Kcal
 - [ x ] in single meal espandere nome alimento per dettagli
-- [   ] fix single meal mobile size (ingrandire input qty)
+- [ x ] fix single meal mobile size (ingrandire input qty)
 - [   ] riempire grafico mealDaily
   ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
 
+- [   ] convert app to android app 
+- [   ] add in store android
+- [   ] add ads
 - [   ] profilo amministratore per monitorare utenti
