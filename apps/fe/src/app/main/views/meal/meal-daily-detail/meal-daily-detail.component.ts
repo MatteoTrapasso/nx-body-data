@@ -23,6 +23,10 @@ export class MealDailyDetailComponent implements OnInit {
   meals$: Observable<any>
   mealOptions: any;
   foods: [any];
+  kcal = 0
+  carbohydrates = 0
+  fat = 0
+  protein = 0
 
   constructor(private store$: Store,
               private confirmationService: ConfirmationService) {}
@@ -96,18 +100,23 @@ export class MealDailyDetailComponent implements OnInit {
           //keys è l'array dei meals divisi per data (chiave)
           keys.forEach((date: string) => {
             const meals: Meal[] = values[date]; //meals è l'array dei meals con la stessa data
-            console.log('meals', meals)
+            console.log('meals prima del forEach:', meals)
             //manca sommare i totali dei singoli meal con quelli dello stesso giorno
-            meals.forEach((meal: Meal) => {
-              /*const kcal = meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre / 100 * menu.qty, 0)
-              const fat = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0)
-              const carbohydrates = meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE / 100 * menu.qty, 0)
-              const protein = meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein / 100 * menu.qty, 0)
-            */datasets.kcal.data.push(Math.random())
-              datasets.fat.data.push(Math.random())
-              datasets.proteins.data.push(Math.random())
-              datasets.carbohydrates.data.push(Math.random())
+              meals.forEach((meal: Meal) => {
+              console.log('meal dentro forEach:', meal)
+              this.kcal =this.kcal + meal.menu.reduce((tot, menu) => tot + +menu.food.Energy_Rec_with_fibre / 100 * menu.qty, 0)
+              this.fat =this.fat + meal.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0)
+              this.carbohydrates =this.carbohydrates + meal.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE / 100 * menu.qty, 0)
+              this.protein =this.protein + meal.menu.reduce((tot, menu) => tot + +menu.food.Total_protein / 100 * menu.qty, 0)
             })
+            datasets.kcal.data.push(this.kcal)
+            datasets.fat.data.push(this.fat)
+            datasets.proteins.data.push(this.protein)
+            datasets.carbohydrates.data.push(this.carbohydrates)
+            this.kcal = 0
+            this.carbohydrates = 0
+            this.fat = 0
+            this.protein = 0
           })
           const result = {
             labels: keys,

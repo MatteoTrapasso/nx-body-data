@@ -97,8 +97,6 @@ export class SingleMealComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('item-----------------------', this.item)
-
     const fat = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Total_fat / 100 * menu.qty, 0))
     const protein = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Total_protein / 100 * menu.qty, 0))
     const carbo = (this.item.menu.reduce((tot, menu) => tot + +menu.food.Available_carbohydrates_MSE / 100 * menu.qty, 0))
