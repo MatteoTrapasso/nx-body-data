@@ -101,10 +101,10 @@
 - [ x ] solo due cifre decimali Kcal
 - [ x ] in single meal espandere nome alimento per dettagli
 - [ x ] fix single meal mobile size (ingrandire input qty)
-- [   ] riempire grafico mealDaily
-  ---------------------------------------------------VERSIONE 4.0------------------------------------------------------------------------
-
-- [   ] convert app to android app 
+- [ x ] riempire grafico mealDaily
+- [ x ] risolvere valori negativi sul db foods
+  ---------------------------------------------------VERSIONE 4.0--------------------------------------------------------------
+- [   ] convert app to android app
 - [   ] add in store android
 - [   ] add ads
 - [   ] profilo amministratore per monitorare utenti
