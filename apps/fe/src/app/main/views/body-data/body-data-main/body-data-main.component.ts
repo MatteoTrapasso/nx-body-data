@@ -98,5 +98,5 @@ export class BodyDataMainComponent implements OnInit {
 }
 
 export const makeBmi = (height, weight) => {
-  return weight / ((height / 100) * 2);
+  return weight / ((height / 100) * (height / 100));
 };
