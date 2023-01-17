@@ -62,7 +62,7 @@
 
               <ng-container formArrayName="menu">
                 <ng-container *ngFor="let foodForm of menu.controls; let i = index">
-                  <div class="p-d-flex" [formGroup]="foodForm">
+                  <div class="p-d-flex" [formGroup]="getFormGroup(foodForm)">
                     <div class="p-mr-2" style="margin: 5%">
                       <label><strong>Food</strong></label><br>
                       <p-autoComplete [suggestions]="options"

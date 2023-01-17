@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {closePopUpAction, PopUpBaseComponent} from '@root-store/router-store/pop-up-base.component';
-import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MealStoreActions} from "@root-store/meal-store/index";
 import {Meal, MenuItem} from "@models/vo/meal";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -151,6 +151,8 @@ export class MealEditComponent extends PopUpBaseComponent<Meal> {
   get menu() {
     return this.form.controls["menu"] as FormArray;
   }
+
+  getFormGroup(control: AbstractControl) { return control as FormGroup; }
 
   deleteFood(foodIndex: number) {
     this.menu.removeAt(foodIndex);
