@@ -13,7 +13,7 @@ async function bootstrap() {
   const globalPrefix = 'api/v1';
   app.setGlobalPrefix(globalPrefix);
   app.enableCors({
-    origin: ['http://localhost:4200', 'https://body-data.herokuapp.com'],
+    origin: ['http://localhost:4200', 'https://body-data-9f0aa4c2601f.herokuapp.com/home/main'],
   });
   const options = new DocumentBuilder()
     .setTitle('body-data')
