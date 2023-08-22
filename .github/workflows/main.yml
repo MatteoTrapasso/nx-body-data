@@ -14,4 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "body-data" #Must be unique in Heroku
-          heroku_email: "matteo.trapasso@altran.it"
+          heroku_email: "matteo.trapasso97@gmail.com"
